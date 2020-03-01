@@ -1,0 +1,78 @@
+@import "../../styles/breakpoints";
+
+.about-page {
+  padding-top: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex: 0 1 auto;
+  flex-direction: column;
+  justify-content: center;
+
+  @include breakpoint-small-down {
+    padding-top: 3rem;
+  }
+
+  h1 {
+    padding: 1rem 0;
+    font-size: 3rem;
+  }
+
+  .content-grid {
+    flex: auto;
+  }
+
+  .about-wrapper {
+    display: flex;
+    flex-direction: row;
+
+    @include breakpoint-small-down {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    @include breakpoint-medium-down {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    img {
+      height: 500px;
+      width: 400px;
+      border-radius: 20px;
+      margin-right: 100px;
+
+      @include breakpoint-small-down {
+        height: 100%;
+        width: 400px;
+
+      }
+    }
+  }
+
+  .about-content {
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+
+    @include breakpoint-small-down {
+      font-size: 1rem;
+    }
+
+    p {
+      font-weight: 300;
+      line-height: normal;
+      font-size: 16px;
+      text-align: justify;
+    }
+
+    .text-emoji {
+      padding: 2rem 0;
+      font-size: 1.5rem;
+      font-weight: 300;
+      text-align: center;
+    }
+  }
+}
+
+@keyframes spin {
+  100% {transform: rotate(1turn); }
+}
