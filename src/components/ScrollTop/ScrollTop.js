@@ -47,5 +47,4 @@ class ScrollTop extends Component {
 }
 
 
-
 export default ScrollTop;

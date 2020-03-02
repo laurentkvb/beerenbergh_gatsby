@@ -4,7 +4,7 @@ const mqPacker = require("css-mqpacker");
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Typescript Starter",
+    title: "Beerenbergh Gatsby",
   },
   plugins: [
     {
@@ -39,5 +39,10 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-typescript",
     "gatsby-transformer-sharp",
+    "gatsby-plugin-remove-serviceworker",
+    "gatsby-plugin-favicon",
+    "gatsby-plugin-sharp",
+    "gatsby-plugin-netlify",
+    "gatsby-plugin-styled-components",
   ],
 };

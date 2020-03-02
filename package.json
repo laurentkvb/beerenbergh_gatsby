@@ -3,27 +3,40 @@
   "description": "Beerenbergh Gatsby",
   "version": "1.0.0",
   "author": "Laurent Kleering vb <lkvb90@gmail.com>",
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "production": "gatsby serve",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "clean": "gatsby clean"
+  },
   "dependencies": {
+    "@styled-system/props": "^5.1.5",
     "gatsby": "^2.19.23",
     "gatsby-plugin-react-helmet": "^3.0.1",
     "gatsby-plugin-typescript": "^2.0.1",
     "gatsby-source-contentful": "^2.1.89",
     "gatsby-transformer-sharp": "^2.3.14",
     "gatsby-plugin-sass": "^2.0.4",
-    "node-sass": "^4.12.0",
+    "styled-components": "^5.0.1",
+    "styled-system": "^5.1.5",
     "react": "^16.6.1",
     "react-dom": "^16.6.1",
     "react-helmet": "^5.2.0",
-    "typescript": "^3.1.6"
-  },
-  "license": "MIT",
-  "main": "n/a",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "clean": "gatsby clean"
+    "typescript": "^3.1.6",
+    "babel-plugin-styled-components": "^1.10.7",
+    "gatsby-image": "^2.0.20",
+    "gatsby-plugin-favicon": "^3.1.4",
+    "gatsby-plugin-manifest": "^2.0.8",
+    "gatsby-plugin-netlify": "^2.0.5",
+    "gatsby-plugin-remove-serviceworker": "^1.0.0",
+    "gatsby-plugin-sharp": "^2.0.12",
+    "gatsby-plugin-sitemap": "^2.0.2",
+    "gatsby-plugin-styled-components": "^3.1.19",
+    "gatsby-source-filesystem": "^2.0.8"
   },
   "devDependencies": {
     "@types/node": "^8.0.7",
@@ -32,6 +45,9 @@
     "@types/react-helmet": "^5.0.15",
     "@typescript-eslint/eslint-plugin": "^2.18.0",
     "@typescript-eslint/parser": "^2.18.0",
+    "@types/styled-components": "^4.4.3",
+    "@types/styled-system": "^5.1.6",
+    "@types/styled-system__css": "^5.0.4",
     "autoprefixer": "^9.3.1",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
@@ -48,6 +64,7 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "prettier": "^1.8.2"
+    "prettier": "^1.8.2",
+    "node-sass": "^4.12.0"
   }
 }
