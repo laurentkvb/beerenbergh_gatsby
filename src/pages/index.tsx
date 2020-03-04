@@ -2,9 +2,10 @@ import * as React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import ScrollTop from "../components/ScrollTop";
 import ParallaxBackground from "../components/ParallaxBackground";
-import Browser from "../components/Browser";
 import LandingPage from "../sections/LandingPage/LandingPage";
 import AboutPage from "../sections/AboutPage";
+import PortfolioPage from "../sections/PortfolioPage/PortfolioPage";
+import Helmet from "react-helmet";
 
 const IndexPage: React.FC = () => {
   const data = useStaticQuery(pageQuery);
@@ -13,12 +14,18 @@ const IndexPage: React.FC = () => {
 
   return (
     <div className="dev-landing-page">
-      <Browser except firefox>
+      <Helmet title="Laurent Kleering van Beerenbergh">
+        <html lang="en" />
+      </Helmet>
+
+      {/*<Browser except firefox>*/}
         <ParallaxBackground />
-      </Browser>
-      <LandingPage title="Hallo mongool" />
+      {/*</Browser>*/}
+      <LandingPage title="Hello, I am Laurent
+Kleering van Beerenbergh"
+      />
       <AboutPage />
-      {/* <PortfolioPage portfolioItems={fields.portfolioItems} /> */}
+      <PortfolioPage data={data.contentfulBeerenbergh.portfolioItems} />
       <ScrollTop />
     </div>
   );

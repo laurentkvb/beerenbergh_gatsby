@@ -2,7 +2,10 @@ import * as React from "react";
 import { ReactNode } from "react";
 import Helmet from "react-helmet";
 
+import "../styles/base.scss";
 import "./index.css";
+import "@fortawesome/fontawesome-free/css/all.css";
+
 import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme";
 import GlobalStyle from "../styles/GlobalStyle";

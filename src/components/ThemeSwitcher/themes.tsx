@@ -1,4 +1,16 @@
-const themes = [
+import { RandomTheme } from "@components/ThemeSwitcher/ThemeSwitcher";
+
+interface InternalTheme {
+  name: string,
+  firstTime?: boolean,
+  colorPrimary: string,
+  colorAlternate: string,
+  colorHighlight: string,
+  textPrimary: string,
+  navAlpha: string,
+}
+
+const themes: InternalTheme[] = [
   {
     name: "blue",
     firstTime: true,
@@ -132,7 +144,7 @@ const themes = [
   }
 ];
 
-export const getThemes = () => themes.map((theme) => ({
+export const getThemes = () : Array<RandomTheme> => themes.map((theme: InternalTheme) => ({
   name: theme.name,
   firstTime: theme.firstTime,
   colorPrimary: theme.colorPrimary,

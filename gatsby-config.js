@@ -43,6 +43,7 @@ module.exports = {
     "gatsby-plugin-favicon",
     "gatsby-plugin-sharp",
     "gatsby-plugin-netlify",
+    "gatsby-plugin-smoothscroll",
     "gatsby-plugin-styled-components",
   ],
 };
