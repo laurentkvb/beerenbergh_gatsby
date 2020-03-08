@@ -18,9 +18,9 @@ const IndexPage: React.FC = () => {
         <html lang="en" />
       </Helmet>
 
-      {/*<Browser except firefox>*/}
-        <ParallaxBackground />
-      {/*</Browser>*/}
+      {/* <Browser except firefox> */}
+      <ParallaxBackground />
+      {/* </Browser> */}
       <LandingPage title="Hello, I am Laurent
 Kleering van Beerenbergh"
       />

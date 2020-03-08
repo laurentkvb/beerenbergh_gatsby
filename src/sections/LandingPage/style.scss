@@ -7,9 +7,6 @@
   flex-direction: column;
   justify-content: center;
 
-  animation-name: fadeInOut;
-  animation-duration: 2s;
-
 
   main {
     display: flex;
@@ -71,13 +68,3 @@
   }
 }
 
-@keyframes fadeInOut {
-  0% {
-    opacity: 0;
-  }
-
-
-  100% {
-    opacity: 100%;
-  }
-}
