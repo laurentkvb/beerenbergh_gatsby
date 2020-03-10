@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 
 import { getThemes } from "./themes";
-import styled, { ThemeContext, ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
 interface ThemeToggleContext {
   toggle: Function;
@@ -45,18 +45,23 @@ export const ThemeToggleContext = React.createContext<ThemeToggleContext>({
 
 export const useTheme = () : ThemeToggleContext => React.useContext(ThemeToggleContext);
 
+
 const ThemeSwitcher: React.FC = ({ children }) => {
   const allThemes : Array<RandomTheme> = getThemes();
-  const firstTimeThemes : Array<RandomTheme> = allThemes.filter((theme) => theme.firstTime);
+  const firstTimeThemes : Array<RandomTheme> = allThemes.filter((
+    theme
+  ) => theme.firstTime);
 
-  const [theme, changeTheme] = useState<RandomTheme>(firstTimeThemes[Math.floor(Math.random() * firstTimeThemes.length)]);
-
-  console.log("Wat is theme:", theme);
+  const [theme, changeTheme] = useState<RandomTheme>(
+    firstTimeThemes[Math.floor(Math.random() * firstTimeThemes.length)]
+  );
 
   const getRandomTheme = () : RandomTheme => {
     const currentTheme : RandomTheme = theme;
 
-    const themesWithoutCurrentTheme : Array<RandomTheme> = allThemes.filter((theme1 : RandomTheme) => theme1.name !== currentTheme.name);
+    const themesWithoutCurrentTheme : Array<RandomTheme> = allThemes.filter(
+      (theme1 : RandomTheme) => theme1.name !== currentTheme.name
+    );
 
     const randomThemeIndex = Math.floor(
       Math.random() * themesWithoutCurrentTheme.length
@@ -70,10 +75,6 @@ const ThemeSwitcher: React.FC = ({ children }) => {
 
     changeTheme(randomTheme);
   };
-
-  const themeContext = useContext(ThemeContext);
-
-  console.log("themeContext", themeContext);
 
   const Wrapper = styled.div`
     background-color: ${theme.bgPrimary};
@@ -91,11 +92,10 @@ const ThemeSwitcher: React.FC = ({ children }) => {
     }
   `;
 
+
   return (
     <ThemeToggleContext.Provider value={{ toggle: switchTheme, theme }}>
       <style>
-        {" "}
-        {/* TODO moet dit weg :hier stond eerst jsx="true" ? */}
         {`
            body {
              background-color: ${theme.bgPrimary};

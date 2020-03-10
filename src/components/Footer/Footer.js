@@ -1,7 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-import "./style";
+import "./style.scss";
 
 const Footer = (props, context) => {
   const { theme: { colorPrimary, textPrimary } } = context;
@@ -19,9 +18,5 @@ const Footer = (props, context) => {
   );
 };
 
-Footer.contextTypes = {
-  theme: PropTypes.any,
-  switchTheme: PropTypes.func
-};
 
 export default Footer;

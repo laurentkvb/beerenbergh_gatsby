@@ -37,13 +37,22 @@
 
 /* reem-kufi-regular - latin */
 @font-face {
-  font-family: 'Reem Kufi';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Reem Kufi Regular'), local('ReemKufi-Regular'),
-       url('../libs/fonts/reem-kufi-v4-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../libs/fonts/reem-kufi-v4-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	font-family: 'Reem Kufi';
+	src: url('./fonts/ReemKufi/ReemKufi-Regular.woff2') format('woff2'),
+	url('./fonts/ReemKufi/ReemKufi-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
+
+@font-face {
+	font-family: 'Reem Kufi';
+	src: url('./fonts/ReemKufi/ReemKufi-Regular.woff2') format('woff2'),
+	url('./fonts/ReemKufi/ReemKufi-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
 
 html {
 	font-size: 12px;
@@ -59,7 +68,7 @@ html {
   @include breakpoint-large-up {
     font-size: 18px;
 	}
-	
+
 	@include breakpoint-xxlarge-up {
     font-size: 20px;
   }
@@ -91,8 +100,8 @@ h1 {
 	}
 }
 
-::-webkit-scrollbar { 
-	display: none; 
+::-webkit-scrollbar {
+	display: none;
 }
 
 a {

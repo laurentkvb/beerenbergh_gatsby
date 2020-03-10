@@ -12,7 +12,6 @@ const AboutPage: React.FC = () => {
   return (
     <div className="about-page" style={{ backgroundColor: theme.theme.bgPrimary }}>
       <style>
-        {/* TODO moet dit weg :hier stond eerst jsx="true" ? */}
         {`
           .highlight {
             background-color: ${theme.theme.colorHighlight};
@@ -33,7 +32,7 @@ const AboutPage: React.FC = () => {
           />
           <div className="about-content" style={{ color: theme.theme.textPrimary }}>
             <h1 style={{ color: theme.theme.colorPrimary }}>Stack</h1>
-            {aboutUsPageData.map((data, i) => (
+            {aboutUsPageData.map((data, i :number) => (
               <HeaderListItem key={i} header={data.topic} list={data.topics} />
             ))}
 

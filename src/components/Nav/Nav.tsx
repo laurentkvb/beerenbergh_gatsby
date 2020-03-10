@@ -28,8 +28,7 @@ const Nav: React.FC = () => {
   };
 
   const scrollToPage = (pageSelector: string) => {
-    const nextPage = document.querySelector(pageSelector);
-    scrollTo(nextPage ? nextPage.className : "");
+    scrollTo(pageSelector);
   };
 
   useEffect(() => {

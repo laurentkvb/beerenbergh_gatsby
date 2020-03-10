@@ -1,24 +1,16 @@
 @font-face {
-  font-family: 'Rajdhani';
-  src: url("./Rajdhani/Rajdhani-Medium.woff2") format('woff2'),
-  url("./Rajdhani/Rajdhani-Medium.woff") format('woff');
-  font-weight: 500;
-  font-style: normal;
+font-family: 'Reem Kufi';
+src: url('./ReemKufi/ReemKufi-Regular.woff2') format('woff2'),
+url('./ReemKufi/ReemKufi-Regular.woff') format('woff');
+font-weight: normal;
+font-style: normal;
 }
 
 @font-face {
-  font-family: 'Rajdhani';
-  src: url("./Rajdhani/Rajdhani-Regular.woff2") format('woff2'),
-  url("./Rajdhani/Rajdhani-Regular.woff") format('woff');
+  font-family: 'Reem Kufi';
+  src: url('./ReemKufi/ReemKufi-Regular.woff2') format('woff2'),
+  url('./ReemKufi/ReemKufi-Regular.woff') format('woff');
   font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Rajdhani';
-  src: url("./Rajdhani/Rajdhani-Bold.woff2") format('woff2'),
-  url("./Rajdhani/Rajdhani-Bold.woff") format('woff');
-  font-weight: bold;
   font-style: normal;
 }
 

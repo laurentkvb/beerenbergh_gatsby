@@ -72,6 +72,7 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'arrow-parens': 'warn',
     'jsx-a11y/href-no-hash': ['off'],
+    'jsx-a11y/control-has-associated-label': ['off'],
     'react/jsx-filename-extension': ['off', { extensions: ['.js', '.jsx'] }],
     'max-len': [
       'warn',

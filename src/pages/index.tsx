@@ -10,20 +10,14 @@ import Helmet from "react-helmet";
 const IndexPage: React.FC = () => {
   const data = useStaticQuery(pageQuery);
 
-  console.log(data);
-
   return (
     <div className="dev-landing-page">
       <Helmet title="Laurent Kleering van Beerenbergh">
         <html lang="en" />
       </Helmet>
 
-      {/* <Browser except firefox> */}
       <ParallaxBackground />
-      {/* </Browser> */}
-      <LandingPage title="Hello, I am Laurent
-Kleering van Beerenbergh"
-      />
+      <LandingPage data={data.contentfulBeerenbergh.title} />
       <AboutPage />
       <PortfolioPage data={data.contentfulBeerenbergh.portfolioItems} />
       <ScrollTop />

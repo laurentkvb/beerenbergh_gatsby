@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import SocialIcons from "../../components/SocialIcons";
 import Nav from "../../components/Nav";
 import ScrollToNext from "../../components/ScrollToNext";
@@ -6,23 +6,25 @@ import ScrollToNext from "../../components/ScrollToNext";
 import "./style.scss";
 import { useTheme } from "@components/ThemeSwitcher/ThemeSwitcher";
 import { animated, useSpring } from "react-spring";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { BLOCKS } from "@contentful/rich-text-types";
 
 export interface Props {
-  title: string;
+  data: any;
 }
 
 
-const LandingPage: React.FC<Props> = ({ title }) => {
+const LandingPage: React.FC<Props> = ({ data }) => {
   const theme = useTheme();
 
-
-  const titleText = () => {
+  const titleText = (text : ReactNode) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const props = useSpring({
       opacity: 1,
       from: { opacity: 0 },
-      fontSize: "4rem",
+      fontSize: "3.5rem",
       fontWeight: "bold",
-      lineHeight: "4rem",
+      lineHeight: "3rem",
       paddingBottom: "1rem",
     });
     return (
@@ -30,25 +32,35 @@ const LandingPage: React.FC<Props> = ({ title }) => {
         <div
           className="intro-name"
           style={{
+            fontFamily: "Reem Kufi",
             color:
-              theme && theme.theme
-                ? theme.theme?.colorPrimary
-                : "blue"
+                    theme && theme.theme
+                      ? theme.theme?.colorPrimary
+                      : "blue"
           }}
         >
-          {title}
+          {text}
         </div>
       </animated.h1>
     );
   };
 
+  const options = {
+    renderNode: {
+      [BLOCKS.PARAGRAPH]: (node : any, children: any) => titleText(children)
+    }
+  };
+
+
   const subtitleText = () => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const props = useSpring({
       opacity: 1,
       from: { opacity: 0 },
+      fontFamily: "Reem Kufi",
       fontSize: "1.375rem",
+      fontWeight: "normal",
       margin: " 1.5rem 0",
-      fontWeight: "300",
     });
     return (
       <animated.h1 style={props}>
@@ -67,7 +79,6 @@ const LandingPage: React.FC<Props> = ({ title }) => {
     );
   };
 
-
   return (
     <div
       id="landing-page"
@@ -80,7 +91,8 @@ const LandingPage: React.FC<Props> = ({ title }) => {
           <br />
 
 
-          {titleText()}
+          {documentToReactComponents(data.json, options)}
+
           {subtitleText()}
 
 

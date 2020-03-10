@@ -3,6 +3,13 @@
 import { createGlobalStyle, css } from "styled-components";
 
 const themeStyles = ({ theme }) => css`
+
+
+    html > *,
+    body > * {
+      overflow-x: hidden;
+    }
+
   /* typography */
   body.font-loaded {
     font-family: ${theme.fonts.primary};
@@ -50,21 +57,21 @@ const GlobalStyle = createGlobalStyle(
       -moz-osx-font-smoothing: grayscale;
     }
 
-    @font-face {
-      font-family: "Rajdhani";
-      src: url("./fonts/Rajdhani/Rajdhani-Bold.woff2") format("woff2"),
-        url("./fonts/Rajdhani/Rajdhani-Bold.woff") format("woff");
-      font-weight: bold;
-      font-style: normal;
-    }
-
-    @font-face {
-      font-family: "Rajdhani";
-      src: url("./fonts/Rajdhani/Rajdhani-Regular.woff2") format("woff2"),
-        url("./fonts/Rajdhani/Rajdhani-Regular.woff") format("woff");
-      font-weight: normal;
-      font-style: normal;
-    }
+    //@font-face {
+    //  font-family: "Rajdhani";
+    //  src: url("./fonts/Rajdhani/Rajdhani-Bold.woff2") format("woff2"),
+    //    url("./fonts/Rajdhani/Rajdhani-Bold.woff") format("woff");
+    //  font-weight: bold;
+    //  font-style: normal;
+    //}
+    //
+    //@font-face {
+    //  font-family: "Rajdhani";
+    //  src: url("./fonts/Rajdhani/Rajdhani-Regular.woff2") format("woff2"),
+    //    url("./fonts/Rajdhani/Rajdhani-Regular.woff") format("woff");
+    //  font-weight: normal;
+    //  font-style: normal;
+    //}
 
     html {
       line-height: 1.15;
