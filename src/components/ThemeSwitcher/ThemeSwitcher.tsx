@@ -70,6 +70,8 @@ const ThemeSwitcher: React.FC = ({ children }) => {
   const firstTimeThemes : Array<RandomTheme> = allThemes.filter((theme) => theme.firstTime);
   const randomThemeIndexOriginal = Math.floor(Math.random() * firstTimeThemes.length);
 
+  const [firstrunMS, setFirstRunMs] = useState(1);
+
   const [shouldChangeTheme, setShouldChangeTheme] = useState<boolean>(true); // if true, theme will change every 10sec.
   const [theme, changeTheme] = useState<RandomTheme>(firstTimeThemes[randomThemeIndexOriginal]);
   const [previousTheme, changePreviousTheme] = useState<RandomTheme>({
@@ -113,6 +115,10 @@ const ThemeSwitcher: React.FC = ({ children }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      if (firstrunMS === 1) {
+        setFirstRunMs(10000);
+      }
+
       if (shouldChangeTheme) {
         changePreviousTheme(theme);
 
@@ -126,9 +132,9 @@ const ThemeSwitcher: React.FC = ({ children }) => {
         );
         changeTheme(themesWithoutCurrentTheme[randomThemeIndex]);
       }
-    }, 10000);
+    }, firstrunMS);
     return () => clearInterval(interval);
-  }, [allThemes, shouldChangeTheme, theme]);
+  }, [allThemes, firstrunMS, shouldChangeTheme, theme]);
 
 
   const Wrapper = styled.div`
