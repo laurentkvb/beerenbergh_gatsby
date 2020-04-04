@@ -22,23 +22,24 @@ const socialMediaData = [
 const SocialIcons: React.FC = () => {
   const theme = useTheme();
 
-  const backgroundProps = useSpring({
+  const color = theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary : theme.theme.colorPrimary;
+
+  const socialIconsProps = useSpring({
     config: { duration: 2000 },
     opacity: 1,
     color: theme.theme.colorPrimary,
-    from: { opacity: 1, color: theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary : theme.theme.colorPrimary },
+    from: { opacity: 1, color },
   });
 
-
   return (
-    <div className="social-icons animate-icons" style={backgroundProps}>
+    <div className="social-icons animate-icons">
       {socialMediaData.map((value, index: number) => (
         <animated.a
           target="_blank"
           rel="noopener noreferrer"
           href={value.url}
           key={index}
-          style={backgroundProps}
+          style={socialIconsProps}
         >
           <i className={value.icon} />
         </animated.a>

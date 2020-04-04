@@ -72,7 +72,21 @@ const ThemeSwitcher: React.FC = ({ children }) => {
 
   const [shouldChangeTheme, setShouldChangeTheme] = useState<boolean>(true); // if true, theme will change every 10sec.
   const [theme, changeTheme] = useState<RandomTheme>(firstTimeThemes[randomThemeIndexOriginal]);
-  const [previousTheme, changePreviousTheme] = useState<RandomTheme>(firstTimeThemes[randomThemeIndexOriginal]);
+  const [previousTheme, changePreviousTheme] = useState<RandomTheme>({
+    name: "",
+    firstTime: false,
+    colorPrimary: "",
+    colorAlternate: "",
+    colorHighlight: "",
+    bgPrimary: "",
+    bgAlternate: "",
+    bgLanding: "",
+    textPrimary: "",
+    textAlternate: "",
+    textLanding: "",
+    parallaxStars: "",
+    navAlpha: "",
+  });
 
   const setShouldChangeThemeVariable = () => {
     setShouldChangeTheme(!shouldChangeTheme);

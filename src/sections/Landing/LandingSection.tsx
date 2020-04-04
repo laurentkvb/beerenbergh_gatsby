@@ -1,9 +1,10 @@
 import React from "react";
+import "./style.scss";
+
 import SocialIcons from "../../components/SocialIcons";
 import Nav from "../../components/Nav";
 import ScrollToNext from "../../components/ScrollToNext";
 
-import "./style.scss";
 import { useTheme } from "@components/ThemeSwitcher/ThemeSwitcher";
 import { animated, useSpring } from "react-spring";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -16,6 +17,8 @@ export interface Props {
 const LandingSection: React.FC<Props> = ({ data }) => {
   const theme = useTheme();
 
+  const color = theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary : theme.theme.colorPrimary;
+
   const backgroundProps = useSpring({
     config: { duration: 2000 },
     opacity: 1,
@@ -26,36 +29,38 @@ const LandingSection: React.FC<Props> = ({ data }) => {
   const titleTextProps = useSpring({
     config: { duration: 2000 },
     opacity: 1,
-    from: { opacity: 1, color: theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary : theme.theme.colorPrimary },
     color: theme.theme.colorPrimary,
-    fontSize: "3.5rem",
-    fontWeight: "bold",
-    fontFamily: "Reem Kufi",
-    lineHeight: "3rem",
-    paddingBottom: "1rem",
+    from: { opacity: 1, color },
+    // fontSize: "3.5rem",
+    // fontWeight: "bold",
+    // fontFamily: "Reem Kufi",
   });
 
   const subtitleProps = useSpring({
     config: { duration: 2000 },
     opacity: 1,
-    from: { opacity: 1, color: theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary : theme.theme.colorPrimary },
     color: theme.theme.colorPrimary,
-    fontSize: "1.375rem",
-    fontWeight: "normal",
-    fontFamily: "Reem Kufi",
-    margin: " 1.5rem 0",
+    from: { opacity: 1, color },
+    // fontSize: "1.375rem",
+    // fontWeight: "normal",
+    // fontFamily: "Reem Kufi",
+    // margin: " 1.5rem 0",
   });
 
 
   const options = {
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (node : any, children: any) => (
-        <animated.h1 style={titleTextProps}>
-          <div className="intro-name">
-            {children}
-          </div>
-        </animated.h1>
-      ) }
+      [BLOCKS.PARAGRAPH]: (node : any, children: any) => {
+
+
+        return (
+          <animated.h1 style={titleTextProps}>
+            <div className="intro-name">
+              {children}
+            </div>
+          </animated.h1>
+        );
+      } }
   };
 
 
@@ -83,7 +88,9 @@ const LandingSection: React.FC<Props> = ({ data }) => {
           <SocialIcons />
         </div>
       </main>
-      <ScrollToNext pageSelector=".about-page" />
+      <div className="ding">
+        <ScrollToNext pageSelector=".about-page" />
+      </div>
     </animated.div>
   );
 };

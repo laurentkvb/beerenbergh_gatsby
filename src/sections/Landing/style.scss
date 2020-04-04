@@ -1,5 +1,19 @@
 @import "../../styles/breakpoints";
 
+.ding {
+  @include breakpoint-small-down {
+    margin-bottom: 100px;
+  }
+}
+
+.intro-name {
+  font-family: 'Reem Kufi', sans-serif;
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 4rem;
+  padding-bottom: 1rem;
+}
+
 .landing-page {
   min-height: 100vh;
   display: flex;
@@ -30,12 +44,12 @@
       text-align: center;
 
       > .intro-name {
-        color: red;
         font-family: 'Reem Kufi', sans-serif;
         font-size: 4rem;
         font-weight: bold;
         line-height: 4rem;
         padding-bottom: 1rem;
+
 
 
 
