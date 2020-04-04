@@ -9,13 +9,16 @@ import PortfolioPage from "../sections/PortfolioPage/PortfolioPage";
 const IndexPage: React.FC = () => {
   const data = useStaticQuery(pageQuery);
 
-  const { contentfulBeerenbergh } = data;
   return (
     <div className="dev-landing-page">
+      <Helmet title="Laurent Kleering van Beerenbergh">
+        <html lang="en" />
+      </Helmet>
+
       <ParallaxBackground />
-      <LandingPage title="Hello, I am Laurent Kleering van Beerenbergh" />
+      <LandingPage data={data.contentfulBeerenbergh.title} />
       <AboutPage />
-      <PortfolioPage data={contentfulBeerenbergh.portfolioItems} />
+      <PortfolioPage data={data.contentfulBeerenbergh.portfolioItems} />
       <ScrollTop />
     </div>
   );

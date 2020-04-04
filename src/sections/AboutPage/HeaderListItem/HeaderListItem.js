@@ -6,8 +6,8 @@ export const HeaderListItem = ({ header, list }) => (
       <b>{`${header}`}</b>
     </h3>
 
-    {list.map((topic) => (
-      <p>
+    {list.map((topic, i) => (
+      <p key={i}>
         <span className="highlight">{`• ${topic}`}</span>
       </p>
     ))}

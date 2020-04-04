@@ -46,6 +46,7 @@ export const ThemeToggleContext = React.createContext<ThemeToggleContext>({
 
 export const useTheme = () : ThemeToggleContext => React.useContext(ThemeToggleContext);
 
+
 const ThemeSwitcher: React.FC = ({ children }) => {
   const allThemes : Array<RandomTheme> = getThemes();
   const firstTimeThemes : Array<RandomTheme> = allThemes.filter((theme) => theme.firstTime);
@@ -88,11 +89,10 @@ const ThemeSwitcher: React.FC = ({ children }) => {
     }
   `;
 
+
   return (
     <ThemeToggleContext.Provider value={{ toggle: switchTheme, theme }}>
       <style>
-        {" "}
-        {/* TODO moet dit weg :hier stond eerst jsx="true" ? */}
         {`
            body {
              background-color: ${theme.bgPrimary};

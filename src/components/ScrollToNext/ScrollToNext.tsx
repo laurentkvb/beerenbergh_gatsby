@@ -12,7 +12,7 @@ const ScrollToNext: React.FC<Props> = ({ pageSelector }) => {
   const theme = useTheme();
 
   const scrollToNext = () => {
-    scrollTo(pageSelector || "");
+    scrollTo(pageSelector);
   };
 
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 import "./style.scss";
 import { useTheme } from "../ThemeSwitcher/ThemeSwitcher";
@@ -16,30 +16,37 @@ const socialMediaData = [
 const SocialIcons: React.FC = () => {
   const theme = useTheme();
 
-  const props = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-  });
+  const titleText = (children : ReactNode) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const props = useSpring({
+      opacity: 1,
+      from: { opacity: 0 },
+    });
+    return (
+      <animated.div style={props}>
+        {children}
+      </animated.div>
+    );
+  };
 
 
-  return (
-    <animated.div style={props}>
+  return titleText(
+    <div className="social-icons animate-icons">
+      {socialMediaData.map((value, index: number) => (
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={value.url}
+          key={index}
+          style={{ color: theme.theme.colorPrimary }}
+        >
+          <i className={value.icon} />
+        </a>
+      ))}
 
-      <div className="social-icons animate-icons">
-        {socialMediaData.map((value) => (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href={value.url}
-            style={{ color: theme.theme.colorPrimary }}
-          >
-            <i className={value.icon} />
-          </a>
-        ))}
+    </div>
 
-      </div>
 
-    </animated.div>
   );
 };
 
