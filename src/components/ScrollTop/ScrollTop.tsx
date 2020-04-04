@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { toTop as scrollToPageTop } from "../../utils/scroll";
 import scrollTo from "gatsby-plugin-smoothscroll";
 
 import "./style.scss";
@@ -17,8 +16,7 @@ const ScrollTop : React.FC = () => {
   const handleScroll = () => {
     // eslint-disable-next-line @typescript-eslint/unbound-method
     const boundingRect = ((document || {}).documentElement || {}).getBoundingClientRect;
-    // @ts-ignore
-    if (boundingRect) {
+    if (boundingRect !== null) {
       if (document.documentElement.getBoundingClientRect().top * -1 > 100) {
         setShouldShowScrollTopArrow(true);
       } else {
@@ -36,7 +34,7 @@ const ScrollTop : React.FC = () => {
   }, []);
 
   return (
-    <div className="scroll-top" onClick={() => scrollTo("0,0")}>
+    <div className="scroll-top" onClick={() => scrollTo(".landing-page")}>
       <div
         className={`arrow ${hideArrowClass}`}
         style={{ color: theme.theme.colorPrimary }}

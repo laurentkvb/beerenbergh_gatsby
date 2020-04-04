@@ -7,9 +7,14 @@
   "main": "n/a",
   "scripts": {
     "build": "gatsby build",
+    "local": "gatsby develop -H 0.0.0.0",
+    "local:dev": "gatsby develop -H 0.0.0.0",
+    "dev": "gatsby develop",
     "develop": "gatsby develop",
     "production": "gatsby build",
     "serve": "gatsby serve",
+    "local:serve": "gatsby serve -H 0.0.0.0",
+    "lint1": "eslint src/** --ext .js,.jsx,.ts,.tsx --fix",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "clean": "gatsby clean"
@@ -31,6 +36,7 @@
     "gatsby-plugin-smoothscroll": "^1.0.4",
     "gatsby-plugin-styled-components": "^3.1.19",
     "gatsby-plugin-typescript": "^2.0.1",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-contentful": "^2.1.89",
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-sharp": "^2.3.14",

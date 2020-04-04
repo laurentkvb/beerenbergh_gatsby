@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { RandomTheme } from "@components/ThemeSwitcher/ThemeSwitcher";
 
 interface InternalTheme {

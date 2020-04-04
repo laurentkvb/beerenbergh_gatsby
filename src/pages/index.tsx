@@ -5,27 +5,17 @@ import ParallaxBackground from "../components/ParallaxBackground";
 import LandingPage from "../sections/LandingPage/LandingPage";
 import AboutPage from "../sections/AboutPage";
 import PortfolioPage from "../sections/PortfolioPage/PortfolioPage";
-import Helmet from "react-helmet";
 
 const IndexPage: React.FC = () => {
   const data = useStaticQuery(pageQuery);
 
-  console.log(data);
-
+  const { contentfulBeerenbergh } = data;
   return (
     <div className="dev-landing-page">
-      <Helmet title="Laurent Kleering van Beerenbergh">
-        <html lang="en" />
-      </Helmet>
-
-      {/* <Browser except firefox> */}
       <ParallaxBackground />
-      {/* </Browser> */}
-      <LandingPage title="Hello, I am Laurent
-Kleering van Beerenbergh"
-      />
+      <LandingPage title="Hello, I am Laurent Kleering van Beerenbergh" />
       <AboutPage />
-      <PortfolioPage data={data.contentfulBeerenbergh.portfolioItems} />
+      <PortfolioPage data={contentfulBeerenbergh.portfolioItems} />
       <ScrollTop />
     </div>
   );

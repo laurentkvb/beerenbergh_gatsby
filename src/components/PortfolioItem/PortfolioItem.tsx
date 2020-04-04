@@ -14,7 +14,10 @@ const PortfolioItem: React.FC<Props> = ({ item }) => {
     <a
       href={item.websiteUrl}
       className="portfolio-item"
-      style={{ backgroundColor: theme.theme.colorPrimary, color: theme.theme.textAlternate }}
+      style={{
+        backgroundColor: theme.theme.colorPrimary,
+        color: theme.theme.textAlternate
+      }}
     >
       <img
         alt={item.projectName}

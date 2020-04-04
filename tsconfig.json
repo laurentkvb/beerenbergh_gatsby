@@ -55,6 +55,12 @@
       ],
       "@images/*": [
         "src/images/*"
+      ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@utils": [
+        "src/utils"
       ]
     },
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */
@@ -79,6 +85,7 @@
     "config/*.js",
     "src/*.js",
     "src/**/*.js",
+    "src/**/*.min.js",
     "src/*.ts",
     "node_modules/*.ts",
     "node_modules/**/.ts",

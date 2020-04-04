@@ -1,10 +1,11 @@
 import React from "react";
-import ScrollToNext from "../../components/ScrollToNext";
 import "./style.scss";
+import laurentPicture from "../../assets/lkvb-moscow.jpg";
+
+import ScrollToNext from "../../components/ScrollToNext";
 import { aboutUsPageData } from "./AboutPaga.data";
 import { HeaderListItem } from "./HeaderListItem/HeaderListItem";
 import { useTheme } from "@components/ThemeSwitcher/ThemeSwitcher";
-import laurentPicture from "../../assets/lkvb-moscow.jpg";
 
 const AboutPage: React.FC = () => {
   const theme = useTheme();

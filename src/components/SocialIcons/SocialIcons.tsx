@@ -16,35 +16,30 @@ const socialMediaData = [
 const SocialIcons: React.FC = () => {
   const theme = useTheme();
 
-  const titleText = (children) => {
-    const props = useSpring({
-      opacity: 1,
-      from: { opacity: 0 },
-    });
-    return (
-      <animated.div style={props}>
-        {children}
-      </animated.div>
-    );
-  };
+  const props = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+  });
 
 
-  return titleText(
-    <div className="social-icons animate-icons">
-      {socialMediaData.map((value) => (
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href={value.url}
-          style={{ color: theme.theme.colorPrimary }}
-        >
-          <i className={value.icon} />
-        </a>
-      ))}
+  return (
+    <animated.div style={props}>
 
-    </div>
+      <div className="social-icons animate-icons">
+        {socialMediaData.map((value) => (
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href={value.url}
+            style={{ color: theme.theme.colorPrimary }}
+          >
+            <i className={value.icon} />
+          </a>
+        ))}
 
+      </div>
 
+    </animated.div>
   );
 };
 

@@ -4,9 +4,19 @@ const mqPacker = require("css-mqpacker");
 
 module.exports = {
   siteMetadata: {
-    title: "Beerenbergh Gatsby",
+    siteUrl: "https://beerenbergh.com",
+    title: "Beerenbergh",
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        custom: {
+          families: ["Reem Kufi, sans-serif"],
+          urls: ["/fonts/fonts.css"],
+        },
+      }
+    },
     {
       resolve: "gatsby-source-contentful",
       options: {

@@ -2,6 +2,11 @@ module.exports = {
   parserOptions: {
     project: './tsconfig.json',
     tsconfigRootDir: __dirname,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
   },
   parser: '@typescript-eslint/parser',
   plugins: ['@typescript-eslint'],
@@ -29,13 +34,15 @@ module.exports = {
           '@components': './src/components',
           '@models/*': './src/models/*',
           '@models': './src/models',
+          '@utils/*': './src/utils/*',
+          '@utils': './src/utils',
           '@images/*': './src/images/*'
         },
         "extensions": [".js", ".jsx", ".tsx",".ts"],
 
       },
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.d.ts'],
+        extensions: ['.js', '.min.js', '.jsx', '.ts', '.tsx', '.d.ts'],
         moduleDirectory: ['node_modules', 'src/', 'node_modules/**'],
       },
     },
@@ -46,10 +53,11 @@ module.exports = {
       { devDependencies: ['src/tests/**', '**/*.test.ts', '**/*.test.tsx'] },
     ],
     'jsx-a11y/no-static-element-interactions': ['off'],
-    'jsx-a11y/click-events-have-key-events': ['warn'],
+    'jsx-a11y/click-events-have-key-events': ['off'],
     'react/sort-comp': ['off'],
     'import/no-cycle': 'warn',
     'import/extensions': ['off'],
+    'jsx-a11y/control-has-associated-label': ['off'],
     '@typescript-eslint/no-empty-interface': ['warn'],
     '@typescript-eslint/no-non-null-assertion': ['off'],
     '@typescript-eslint/no-var-requires': ['off'],
@@ -76,7 +84,7 @@ module.exports = {
     'max-len': [
       'warn',
       {
-        code: 90,
+        code: 100,
         tabWidth: 4,
         comments: 80,
         ignoreComments: false,

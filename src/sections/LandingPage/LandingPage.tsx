@@ -15,57 +15,22 @@ export interface Props {
 const LandingPage: React.FC<Props> = ({ title }) => {
   const theme = useTheme();
 
+  const titleAnimationProps = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    fontSize: "4rem",
+    fontWeight: "bold",
+    lineHeight: "4rem",
+    paddingBottom: "1rem",
+  });
 
-  const titleText = () => {
-    const props = useSpring({
-      opacity: 1,
-      from: { opacity: 0 },
-      fontSize: "4rem",
-      fontWeight: "bold",
-      lineHeight: "4rem",
-      paddingBottom: "1rem",
-    });
-    return (
-      <animated.h1 style={props}>
-        <div
-          className="intro-name"
-          style={{
-            color:
-              theme && theme.theme
-                ? theme.theme?.colorPrimary
-                : "blue"
-          }}
-        >
-          {title}
-        </div>
-      </animated.h1>
-    );
-  };
-
-  const subtitleText = () => {
-    const props = useSpring({
-      opacity: 1,
-      from: { opacity: 0 },
-      fontSize: "1.375rem",
-      margin: " 1.5rem 0",
-      fontWeight: "300",
-    });
-    return (
-      <animated.h1 style={props}>
-        <div
-          className="tagline"
-          style={{
-            color:
-            theme && theme.theme
-              ? theme.theme?.colorPrimary
-              : "blue"
-          }}
-        >
-          Full Stack Developer
-        </div>
-      </animated.h1>
-    );
-  };
+  const subtitleAnimationProps = useSpring({
+    opacity: 1,
+    from: { opacity: 0 },
+    fontSize: "1.375rem",
+    margin: " 1.5rem 0",
+    fontWeight: 300,
+  });
 
 
   return (
@@ -80,8 +45,33 @@ const LandingPage: React.FC<Props> = ({ title }) => {
           <br />
 
 
-          {titleText()}
-          {subtitleText()}
+          <animated.h1 style={titleAnimationProps}>
+            <div
+              className="intro-name"
+              style={{
+                color:
+                  theme && theme.theme
+                    ? theme.theme?.colorPrimary
+                    : "blue"
+              }}
+            >
+              {title}
+            </div>
+          </animated.h1>
+
+          <animated.h1 style={subtitleAnimationProps}>
+            <div
+              className="tagline"
+              style={{
+                color:
+                  theme && theme.theme
+                    ? theme.theme?.colorPrimary
+                    : "blue"
+              }}
+            >
+              Full Stack Developer
+            </div>
+          </animated.h1>
 
 
           <SocialIcons />
