@@ -7,7 +7,7 @@
 	flex: 0 1 auto;
 	flex-direction: column;
   justify-content: center;
-  
+
   @include breakpoint-small-down {
     padding-top: 3rem;
   }
@@ -31,6 +31,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    align-content: center;
     width: 1000px;
 
     @include breakpoint-small-down {

@@ -17,9 +17,16 @@ const ScrollTop : React.FC = () => {
     // eslint-disable-next-line @typescript-eslint/unbound-method
     const boundingRect = ((document || {}).documentElement || {}).getBoundingClientRect;
     if (boundingRect !== null) {
+      const offset = document.documentElement.scrollTop + window.innerHeight;
+      const height = document.documentElement.offsetHeight;
+
       if (document.documentElement.getBoundingClientRect().top * -1 > 100) {
         setShouldShowScrollTopArrow(true);
       } else {
+        setShouldShowScrollTopArrow(false);
+      }
+
+      if (offset === height) {
         setShouldShowScrollTopArrow(false);
       }
     }

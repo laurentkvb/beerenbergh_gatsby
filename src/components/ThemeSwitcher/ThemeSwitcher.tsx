@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // eslint-disable-next-line import/no-cycle
 import { getThemes } from "./themes";
 import styled, { ThemeProvider } from "styled-components";
 
 interface ThemeToggleContext {
-  toggle: Function;
+  toggleTheme: Function;
+  setShouldChangeTheme: Function;
   theme: RandomTheme;
+  previousTheme: RandomTheme;
 }
 
 export interface RandomTheme {
@@ -26,7 +28,8 @@ export interface RandomTheme {
 }
 
 export const ThemeToggleContext = React.createContext<ThemeToggleContext>({
-  toggle: () => {},
+  toggleTheme: () => {},
+  setShouldChangeTheme: () => {},
   theme: {
     name: "",
     firstTime: false,
@@ -41,7 +44,22 @@ export const ThemeToggleContext = React.createContext<ThemeToggleContext>({
     textLanding: "",
     parallaxStars: "",
     navAlpha: "",
-  }
+  },
+  previousTheme: {
+    name: "",
+    firstTime: false,
+    colorPrimary: "",
+    colorAlternate: "",
+    colorHighlight: "",
+    bgPrimary: "",
+    bgAlternate: "",
+    bgLanding: "",
+    textPrimary: "",
+    textAlternate: "",
+    textLanding: "",
+    parallaxStars: "",
+    navAlpha: "",
+  },
 });
 
 export const useTheme = () : ThemeToggleContext => React.useContext(ThemeToggleContext);
@@ -52,7 +70,13 @@ const ThemeSwitcher: React.FC = ({ children }) => {
   const firstTimeThemes : Array<RandomTheme> = allThemes.filter((theme) => theme.firstTime);
   const randomThemeIndexOriginal = Math.floor(Math.random() * firstTimeThemes.length);
 
+  const [shouldChangeTheme, setShouldChangeTheme] = useState<boolean>(true); // if true, theme will change every 10sec.
   const [theme, changeTheme] = useState<RandomTheme>(firstTimeThemes[randomThemeIndexOriginal]);
+  const [previousTheme, changePreviousTheme] = useState<RandomTheme>(firstTimeThemes[randomThemeIndexOriginal]);
+
+  const setShouldChangeThemeVariable = () => {
+    setShouldChangeTheme(!shouldChangeTheme);
+  };
 
   const getRandomTheme = () : RandomTheme => {
     const currentTheme : RandomTheme = theme;
@@ -67,11 +91,31 @@ const ThemeSwitcher: React.FC = ({ children }) => {
     return themesWithoutCurrentTheme[randomThemeIndex];
   };
 
-  const switchTheme = () => {
+  const toggleTheme = () => {
     const randomTheme = getRandomTheme();
 
     changeTheme(randomTheme);
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (shouldChangeTheme) {
+        changePreviousTheme(theme);
+
+        const currentTheme : RandomTheme = theme;
+
+        const themesWithoutCurrentTheme : Array<RandomTheme> = allThemes
+          .filter((theme1 : RandomTheme) => theme1.name !== currentTheme.name);
+
+        const randomThemeIndex = Math.floor(
+          Math.random() * themesWithoutCurrentTheme.length
+        );
+        changeTheme(themesWithoutCurrentTheme[randomThemeIndex]);
+      }
+    }, 10000);
+    return () => clearInterval(interval);
+  }, [allThemes, shouldChangeTheme, theme]);
+
 
   const Wrapper = styled.div`
     background-color: ${theme.bgPrimary};
@@ -91,7 +135,7 @@ const ThemeSwitcher: React.FC = ({ children }) => {
 
 
   return (
-    <ThemeToggleContext.Provider value={{ toggle: switchTheme, theme }}>
+    <ThemeToggleContext.Provider value={{ toggleTheme, setShouldChangeTheme: setShouldChangeThemeVariable, theme, previousTheme }}>
       <style>
         {`
            body {

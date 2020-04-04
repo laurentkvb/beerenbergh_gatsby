@@ -4,14 +4,22 @@ import laurentPicture from "../../assets/lkvb-moscow.jpg";
 
 import ScrollToNext from "../../components/ScrollToNext";
 import { aboutUsPageData } from "./AboutPaga.data";
-import { HeaderListItem } from "./HeaderListItem/HeaderListItem";
 import { useTheme } from "@components/ThemeSwitcher/ThemeSwitcher";
+import AboutListItem from "@components/AboutListItem/AboutListItem";
+import { useSpring, animated } from "react-spring";
 
-const AboutPage: React.FC = () => {
+const AboutSection: React.FC = () => {
   const theme = useTheme();
 
+  const backgroundProps = useSpring({
+    config: { duration: 2000 },
+    opacity: 1,
+    backgroundColor: theme.theme.bgPrimary,
+    from: { opacity: 1, backgroundColor: theme.previousTheme.bgPrimary !== "" ? theme.previousTheme.bgPrimary : theme.theme.bgPrimary },
+  });
+
   return (
-    <div className="about-page" style={{ backgroundColor: theme.theme.bgPrimary }}>
+    <animated.div className="about-page" style={backgroundProps}>
       <style>
         {`
           .highlight {
@@ -34,7 +42,7 @@ const AboutPage: React.FC = () => {
           <div className="about-content" style={{ color: theme.theme.textPrimary }}>
             <h1 style={{ color: theme.theme.colorPrimary }}>Stack</h1>
             {aboutUsPageData.map((data, i :number) => (
-              <HeaderListItem key={i} header={data.topic} list={data.topics} />
+              <AboutListItem key={i} header={data.topic} list={data.topics} />
             ))}
 
             <p className="text-emoji" style={{ color: theme.theme.colorPrimary }}>
@@ -44,8 +52,8 @@ const AboutPage: React.FC = () => {
         </div>
       </div>
       <ScrollToNext pageSelector=".portfolio-page" />
-    </div>
+    </animated.div>
   );
 };
 
-export default AboutPage;
+export default AboutSection;

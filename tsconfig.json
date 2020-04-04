@@ -61,6 +61,12 @@
       ],
       "@utils": [
         "src/utils"
+      ],
+      "@sections/*": [
+        "src/sections/*"
+      ],
+      "@sections": [
+        "src/sections"
       ]
     },
     // "rootDirs": [],                        /* List of root folders whose combined content represents the structure of the project at runtime. */

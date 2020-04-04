@@ -3,6 +3,7 @@ import scrollTo from "gatsby-plugin-smoothscroll";
 
 import "./style.scss";
 import { useTheme } from "@components/ThemeSwitcher/ThemeSwitcher";
+import { animated, useSpring } from "react-spring";
 
 const Nav: React.FC = () => {
   const theme = useTheme();
@@ -10,12 +11,25 @@ const Nav: React.FC = () => {
   const navRef = useRef<HTMLElement>(null);
 
   const stickyClass = isSticky ? "sticky" : "";
-  const stickyStyles = isSticky
-    ? { backgroundColor: theme.theme.navAlpha, color: theme.theme.colorPrimary }
-    : {
-      backgroundColor: theme.theme.bgPrimary,
-      color: theme.theme.colorPrimary
-    }; // TODO COLOR
+  let stickyProps;
+
+  if (isSticky) {
+    stickyProps = (theme.previousTheme.navAlpha !== "" ? theme.previousTheme.navAlpha : theme.theme.navAlpha);
+  } else {
+    stickyProps = theme.previousTheme.bgPrimary !== "" ? theme.previousTheme.bgPrimary : theme.theme.bgPrimary;
+  }
+
+  const stickyStyles = useSpring({
+    config: { duration: 2000 },
+    opacity: 1,
+    from: {
+      opacity: 1,
+      backgroundColor: stickyProps,
+      color: theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary : theme.theme.colorPrimary
+    },
+    backgroundColor: isSticky ? theme.theme.navAlpha : theme.theme.bgPrimary,
+    color: theme.theme.colorPrimary
+  });
 
   const handleScroll = () => {
     if (navRef instanceof HTMLElement) {
@@ -40,8 +54,8 @@ const Nav: React.FC = () => {
   }, []);
 
   return (
-    <nav className={stickyClass} ref={navRef} style={stickyStyles}>
-      <div className="magic-wand bounce-xy" onClick={() => theme.toggle()}>
+    <animated.nav className={stickyClass} ref={navRef} style={stickyStyles}>
+      <div className="magic-wand bounce-xy" onClick={() => theme.setShouldChangeTheme()}>
         <button className="fas fa-magic fa-lg" type="button" />
         <div className="magic-text">Color Me</div>
       </div>
@@ -51,7 +65,6 @@ const Nav: React.FC = () => {
             border-bottom: 2px solid ${theme.theme.colorPrimary};
           }
         `}
-        /*TODO THEME / COLOR*/
       </style>
       <div className="menu">
         <div
@@ -67,7 +80,7 @@ const Nav: React.FC = () => {
           Portfolio
         </div>
       </div>
-    </nav>
+    </animated.nav>
   );
 };
 

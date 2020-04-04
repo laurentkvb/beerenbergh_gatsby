@@ -1,19 +1,28 @@
 import React from "react";
-import PortfolioItem from "@components/PortfolioItem";
-
 import "./style.scss";
+
+import PortfolioItem from "@components/PortfolioItem";
 import { useTheme } from "@components/ThemeSwitcher/ThemeSwitcher";
-import { PortfolioItemModel } from "@models/PortfolioItemModel";
+import { PortfolioItemModel } from "@models/contentful/PortfolioItemModel";
+import ScrollToPrevious from "@components/ScrollToPrevious/ScrollToPrevious";
+import { animated, useSpring } from "react-spring";
 
 interface Props {
   data : PortfolioItemModel[]
 }
 
-const PortfolioPage: React.FC<Props> = ({ data }) => {
+const PortfolioSection: React.FC<Props> = ({ data }) => {
   const theme = useTheme();
 
+  const backgroundProps = useSpring({
+    config: { duration: 2000 },
+    opacity: 1,
+    backgroundColor: theme.theme.bgPrimary,
+    from: { opacity: 1, backgroundColor: theme.previousTheme.bgPrimary !== "" ? theme.previousTheme.bgPrimary : theme.theme.bgPrimary },
+  });
+
   return (
-    <div className="portfolio-page" style={{ backgroundColor: theme.theme.bgPrimary }}>
+    <animated.div className="portfolio-page" style={backgroundProps}>
       <div className="content-grid">
         <h1 style={{ color: theme.theme.colorPrimary }}>Portfolio</h1>
         <div className="portfolio-wrapper">
@@ -32,13 +41,16 @@ const PortfolioPage: React.FC<Props> = ({ data }) => {
             `}
           </style>
           {data.map((item :PortfolioItemModel, i: number) => (
-            <PortfolioItem item={item} key={i} />
+            <div style={{ flex: "1 0 20%" }}>
+              <PortfolioItem item={item} key={i} />
+            </div>
+
           ))}
         </div>
       </div>
-      {/* <ScrollToPrevious pageSelector=".landing-page" /> */}
-    </div>
+      <ScrollToPrevious pageSelector=".landing-page" />
+    </animated.div>
   );
 };
 
-export default PortfolioPage;
+export default PortfolioSection;

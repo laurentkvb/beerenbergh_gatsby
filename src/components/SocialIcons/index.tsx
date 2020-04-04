@@ -1,3 +1,3 @@
-import SocialIcons from "./SocialIcons.tsx";
+import SocialIcons from "./SocialIcons";
 
 export default SocialIcons;

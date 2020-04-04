@@ -11,16 +11,11 @@ interface Props {
 const ScrollToPrevious: React.FC<Props> = ({ pageSelector }) => {
   const theme = useTheme();
 
-  const scrollToPrevious = () => {
-    const previousPage = document.querySelector(pageSelector);
-    scrollTo(previousPage ? previousPage.className : "");
-  };
-
 
   return (
     <div
       className="scroll-to-previous"
-      onClick={() => scrollToPrevious()}
+      onClick={() => scrollTo(pageSelector)}
     >
       <div className="arrow bounce" style={{ color: theme.theme.colorPrimary }}>
         <button className="fas fa-angle-double-up fa-2x" type="button" />
