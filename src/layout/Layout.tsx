@@ -11,6 +11,7 @@ import theme from "../styles/theme";
 import GlobalStyle from "../styles/GlobalStyle";
 import ThemeSwitcher from "@components/../theme/ThemeSwitcher/ThemeSwitcher";
 import { SEO } from "@components/SEO";
+import AudioPlayer from "../audioPlayer/AudioPlayer";
 
 interface DefaultLayoutProps extends React.HTMLProps<HTMLDivElement> {
   location: {
@@ -26,11 +27,18 @@ const Layout: React.FC<DefaultLayoutProps> = ({
     <GlobalStyle />
     <SEO />
 
-    <div>
-      <ThemeSwitcher>
-        <main>{children}</main>
-      </ThemeSwitcher>
-    </div>
+    <AudioPlayer>
+
+      <div>
+        <ThemeSwitcher>
+          <main>
+
+            {children}
+          </main>
+        </ThemeSwitcher>
+      </div>
+    </AudioPlayer>
+
   </ThemeProvider>
 );
 

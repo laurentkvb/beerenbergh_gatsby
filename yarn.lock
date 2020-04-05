@@ -1654,6 +1654,13 @@
   resolved "https://registry.yarnpkg.com/@types/debug/-/debug-0.0.29.tgz#a1e514adfbd92f03a224ba54d693111dbf1f3754"
   integrity sha1-oeUUrfvZLwOiJLpU1pMRHb8fN1Q=
 
+"@types/detect-browser@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@types/detect-browser/-/detect-browser-4.0.0.tgz#5672576f9621aad8773489593fca2e4c57c29fb5"
+  integrity sha512-c2cAqR4G5QL2aPDgzpsk8ck/R+w7djxpe05Z8XYg1Ahfe/Bekb+06PG9zw64T6I1oNWDVM+IAsSbyASVydAdRw==
+  dependencies:
+    detect-browser "*"
+
 "@types/eslint-visitor-keys@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@types/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz#1ee30d79544ca84d68d4b3cdb0af4f205663dd2d"
@@ -1771,6 +1778,13 @@
   version "0.61.17"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.61.17.tgz#5994af207c2339d498ebd8bd427c68074ce9e744"
   integrity sha512-12qKZz/ob56lglVRAIDgqDchcyO0g5lZtrjxCTQDNJv8HFHZMcZx78+/CjKsu3LGs6KbajkZ1+0htqiaxr5JVA==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-sound@^1.2.2":
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/@types/react-sound/-/react-sound-1.2.2.tgz#07677469bfcfedeb32fe4c770b44cc4c4d5a8a30"
+  integrity sha512-Me8hKcx3bgpLNZCuyO40D3+a/1I9xlnx0ZteZRlNWcpQ7zpT+xBAXDlSy8RlTdIigTq7O3OiyV0FZcDjZhGT5g==
   dependencies:
     "@types/react" "*"
 
@@ -4446,6 +4460,11 @@ destroy@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
   integrity sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
+
+detect-browser@*, detect-browser@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/detect-browser/-/detect-browser-5.0.0.tgz#a43085fe7b5f0f4200e7e83f003ad9874b4a45f8"
+  integrity sha512-jUaq/SAT9YMlmhq/8w7gnqqr8AMcc7iYG1eAp7vP/7xn2eLtlcnEmxOkh2PmTg2Q+jVSUO3XD4sZ/IldbGg3dA==
 
 detect-indent@^6.0.0:
   version "6.0.0"
@@ -10557,7 +10576,7 @@ prompts@^2.3.0:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.4, prop-types@^15.5.7, prop-types@^15.5.8, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -10875,6 +10894,14 @@ react-side-effect@^1.1.0:
   integrity sha512-v1ht1aHg5k/thv56DRcjw+WtojuuDHFUgGfc+bFHOWsF4ZK6C2V57DO0Or0GPsg6+LSTE0M6Ry/gfzhzSwbc5w==
   dependencies:
     shallowequal "^1.0.1"
+
+react-sound@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-sound/-/react-sound-1.2.0.tgz#1bb7e1ec8494ecc57b03dbdecd1496b10f6541f2"
+  integrity sha512-pc2l8f7Oy3VePRRVesBwSSJ0mrCeD/lE5GVCT1RPdEQ7lgbZTDyWI8HokXHmS1v79aiLnd3WTRhfsBAY0NTb8g==
+  dependencies:
+    prop-types "^15.5.7"
+    soundmanager2 "^2.97.20170602"
 
 react-spring@^8.0.27:
   version "8.0.27"
@@ -11941,6 +11968,11 @@ sort-keys@^2.0.0:
   integrity sha1-ZYU1WEhh7JfXMNbPQYIuH1ZoQSg=
   dependencies:
     is-plain-obj "^1.0.0"
+
+soundmanager2@^2.97.20170602:
+  version "2.97.20170602"
+  resolved "https://registry.yarnpkg.com/soundmanager2/-/soundmanager2-2.97.20170602.tgz#fe3bc731bfc4d54c1364e71980263e6816981879"
+  integrity sha512-2ee7ES9SJ++WkD7PGHMeT4QUuJr7uC3wacD6RoCDlKjdSp9lpEOaKm3lKWKld119DLILjS2l9U6xpXJN6U0KPQ==
 
 source-list-map@^2.0.0:
   version "2.0.1"

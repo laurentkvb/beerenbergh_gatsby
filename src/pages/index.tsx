@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import { graphql, useStaticQuery } from "gatsby";
 import ScrollTop from "@components/ScrollTop";
 import ParallaxBackground from "@components/ParallaxBackground";

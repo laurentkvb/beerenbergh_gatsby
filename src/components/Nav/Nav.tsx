@@ -4,6 +4,7 @@ import scrollTo from "gatsby-plugin-smoothscroll";
 import "./style.scss";
 import { animated, useSpring } from "react-spring";
 import { useTheme } from "../../theme/ThemeSwitcher/ThemeSwitcher";
+import AudioToggleButton from "@components/AudioToggleButton/AudioToggleButton";
 
 const Nav: React.FC = () => {
   const theme = useTheme();
@@ -12,6 +13,11 @@ const Nav: React.FC = () => {
 
   const stickyClass = isSticky ? "sticky" : "";
   let stickyProps;
+
+  console.log("theme");
+  console.log(theme);
+  console.log("theme.toggleTheme");
+  console.log(theme.toggleTheme);
 
   if (isSticky) {
     stickyProps = (theme.previousTheme.navAlpha !== "" ? theme.previousTheme.navAlpha : theme.currentTheme.navAlpha);
@@ -55,7 +61,12 @@ const Nav: React.FC = () => {
 
   return (
     <animated.nav className={stickyClass} ref={navRef} style={stickyStyles}>
+      {/* <div className="magic-wand bounce-xy" onClick={() => theme.setShouldChangeTheme()}> */}
+      {/*  <button className="fas fa-magic fa-lg" type="button" /> */}
+      {/*  <div className="magic-text">Color Me</div> */}
+      {/* </div> */}
 
+      <AudioToggleButton stickyStyles={stickyStyles} />
       <style>
         {`
           .menu__item:hover {
