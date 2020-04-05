@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import "./style.scss";
 
 import SocialIcons from "@components/SocialIcons";
@@ -8,7 +8,7 @@ import ScrollToNext from "@components/ScrollToNext";
 import { animated, useSpring } from "react-spring";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { BLOCKS } from "@contentful/rich-text-types";
-import { globalColorProps } from "../../animation/AnimationUtil";
+import { globalColorProps } from "../../animations/AnimationUtil";
 import { useTheme } from "../../theme/ThemeSwitcher/ThemeSwitcher";
 
 export interface Props {
@@ -29,9 +29,16 @@ const LandingSection: React.FC<Props> = ({ data }) => {
 
   const options = {
     renderNode: {
-      [BLOCKS.PARAGRAPH]: (node : any, children: any) => (
+      [BLOCKS.HEADING_1]: (node : any, children: ReactNode) => (
         <animated.h1 style={globalAnimation}>
           <div className="intro-name">
+            {children}
+          </div>
+        </animated.h1>
+      ),
+      [BLOCKS.HEADING_2]: (node : any, children: ReactNode) => (
+        <animated.h1 style={globalAnimation}>
+          <div className="tagline">
             {children}
           </div>
         </animated.h1>
@@ -51,10 +58,6 @@ const LandingSection: React.FC<Props> = ({ data }) => {
 
 
           {documentToReactComponents(data.json, options)}
-
-          <animated.h1 className="tagline" style={globalAnimation}>
-            Full Stack Developer
-          </animated.h1>
 
 
           <SocialIcons />

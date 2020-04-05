@@ -3,6 +3,7 @@ import React from "react";
 import "./style.scss";
 import { useTheme } from "../../theme/ThemeSwitcher/ThemeSwitcher";
 import { animated, useSpring } from "react-spring";
+import { globalColorProps } from "../../animations/AnimationUtil";
 
 const socialMediaData = [
   { url: "https://github.com/laurentkvb",
@@ -22,14 +23,7 @@ const socialMediaData = [
 const SocialIcons: React.FC = () => {
   const theme = useTheme();
 
-  const color = theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary : theme.currentTheme.colorPrimary;
-
-  const socialIconsProps = useSpring({
-    config: { duration: 2000 },
-    opacity: 1,
-    color: theme.currentTheme.colorPrimary,
-    from: { opacity: 0, color },
-  });
+  const animationStyleProps = useSpring(globalColorProps(theme));
 
   return (
     <div className="social-icons animate-icons">
@@ -39,7 +33,7 @@ const SocialIcons: React.FC = () => {
           rel="noopener noreferrer"
           href={value.url}
           key={index}
-          style={socialIconsProps}
+          style={animationStyleProps}
         >
           <i className={value.icon} />
         </animated.a>

@@ -1,14 +1,14 @@
 import { CSSProperties } from "react";
-import { ThemeToggleContext } from "../theme/ThemeSwitcher/ThemeSwitcher";
+import { ThemeSwitcherContext } from "../theme/ThemeSwitcher/interfaces/ThemeSwitcherContext";
 
-export const globalColorProps = (theme : ThemeToggleContext) : CSSProperties => {
+export const globalColorProps = (theme : ThemeSwitcherContext) : CSSProperties => {
   const color = theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary
     : theme.currentTheme.colorPrimary;
 
   const result = { config: { duration: 2000 },
     opacity: 1,
     color: theme.currentTheme.colorPrimary,
-    from: { opacity: 0, color } };
+    from: { opacity: 1, color } };
 
   return result;
 };

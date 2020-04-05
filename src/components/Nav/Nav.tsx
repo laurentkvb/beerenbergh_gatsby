@@ -55,10 +55,7 @@ const Nav: React.FC = () => {
 
   return (
     <animated.nav className={stickyClass} ref={navRef} style={stickyStyles}>
-      <div className="magic-wand bounce-xy" onClick={() => theme.setShouldChangeTheme()}>
-        <button className="fas fa-magic fa-lg" type="button" />
-        <div className="magic-text">Color Me</div>
-      </div>
+
       <style>
         {`
           .menu__item:hover {

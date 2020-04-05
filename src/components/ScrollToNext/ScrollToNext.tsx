@@ -3,6 +3,8 @@ import scrollTo from "gatsby-plugin-smoothscroll";
 
 import "./style.scss";
 import { useTheme } from "../../theme/ThemeSwitcher/ThemeSwitcher";
+import { useSpring, animated } from "react-spring";
+import { globalColorProps } from "../../animations/AnimationUtil";
 
 interface Props {
   pageSelector: string;
@@ -11,16 +13,16 @@ interface Props {
 const ScrollToNext: React.FC<Props> = ({ pageSelector }) => {
   const theme = useTheme();
 
-  const scrollToNext = () => {
-    scrollTo(pageSelector);
-  };
+
+  const globalAnimation = useSpring(globalColorProps(theme));
+
 
   return (
-    <div className="scroll-to-next" onClick={() => scrollToNext()}>
-      <div className="arrow bounce" style={{ color: theme.currentTheme.colorPrimary }}>
+    <div className="scroll-to-next" onClick={() => scrollTo(pageSelector)}>
+      <animated.div className="arrow bounce" style={globalAnimation}>
         <div className="scroll-text">Click Me</div>
         <button className="fas fa-chevron-down fa-2x" type="button" />
-      </div>
+      </animated.div>
     </div>
   );
 };

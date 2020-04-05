@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-cycle
-import { Theme } from "./ThemeSwitcher";
+
+import { Theme } from "./interfaces/Theme";
 
 interface InternalTheme {
   name: string,

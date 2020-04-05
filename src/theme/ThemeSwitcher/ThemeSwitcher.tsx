@@ -2,30 +2,13 @@ import React, { useEffect, useState } from "react";
 
 // eslint-disable-next-line import/no-cycle
 import { getThemes } from "./themes";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
+import Wrapper from "@components/Wrapper/Wrapper";
+import { ThemeSwitcherContext } from "./interfaces/ThemeSwitcherContext";
+import { Theme } from "./interfaces/Theme";
 
-export interface ThemeToggleContext {
-  toggleTheme: Function;
-  setShouldChangeTheme: Function;
-  currentTheme: Theme;
-  previousTheme: Theme;
-}
 
-export interface Theme {
-  name: string;
-  firstTime?: boolean;
-  colorPrimary: string;
-  colorAlternate: string;
-  colorHighlight: string;
-  bgPrimary: string;
-  bgAlternate: string;
-  bgLanding: string;
-  textPrimary: string;
-  textAlternate: string;
-  textLanding: string;
-  parallaxStars: string;
-  navAlpha: string;
-}
+const DEFAULT_CHOSEN_INDEX_FROM_THEMES = 7;
 
 const intervalInMS = 5000;
 const themeInitialState = {
@@ -44,34 +27,38 @@ const themeInitialState = {
   navAlpha: "",
 };
 
-export const ThemeToggleContext = React.createContext<ThemeToggleContext>({
+export const ThemeToggleContext = React.createContext<ThemeSwitcherContext>({
   toggleTheme: () => {},
   setShouldChangeTheme: () => {},
   currentTheme: themeInitialState,
   previousTheme: themeInitialState,
 });
 
-export const useTheme = () : ThemeToggleContext => React.useContext(ThemeToggleContext);
+export const useTheme = () : ThemeSwitcherContext => React.useContext(ThemeToggleContext);
 
 
 /**
  *
  * @param children
- * @variable shouldChangeTheme if true, theme will change every x interval in miliseconds
+ * @variable shouldChangeTheme if true, theme will change every x
+ * interval in miliseconds
  * @constructor
  */
 const ThemeSwitcher: React.FC = ({ children }) => {
   const firstTimeThemes : Array<Theme> = getThemes().filter((theme) => theme.firstTime);
 
   const [shouldChangeTheme, setShouldChangeTheme] = useState<boolean>(true);
-  const [currentTheme, changeTheme] = useState<Theme>(firstTimeThemes[Math.floor(Math.random() * firstTimeThemes.length)]);
+  const [currentTheme, changeTheme] = useState<Theme>(
+    getThemes()[DEFAULT_CHOSEN_INDEX_FROM_THEMES]
+  );
+
   const [previousTheme, changePreviousTheme] = useState<Theme>(themeInitialState);
 
 
   /* Function declarations below */
   const getRandomTheme = () : Theme => {
     if (currentTheme == null) {
-      return firstTimeThemes[0];
+      return firstTimeThemes[DEFAULT_CHOSEN_INDEX_FROM_THEMES];
     }
 
     const randomTheme: Theme = currentTheme;
@@ -83,11 +70,6 @@ const ThemeSwitcher: React.FC = ({ children }) => {
     );
 
     return themesWithoutCurrentTheme[randomThemeIndex];
-  };
-
-  const toggleTheme = () => {
-    const randomTheme = getRandomTheme();
-    changeTheme(randomTheme);
   };
 
   useEffect(() => {
@@ -110,26 +92,9 @@ const ThemeSwitcher: React.FC = ({ children }) => {
   }, [currentTheme, firstTimeThemes, shouldChangeTheme]);
 
 
-  const Wrapper = styled.div`
-    background-color: ${currentTheme?.bgPrimary};
-    body,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    ol,
-    ul {
-      color: ${currentTheme?.textPrimary};
-    }
-  `;
-
-
   return (
     <ThemeToggleContext.Provider value={{
-      toggleTheme,
+      toggleTheme: () => changeTheme(getRandomTheme()),
       setShouldChangeTheme: () => setShouldChangeTheme(!shouldChangeTheme),
       currentTheme,
       previousTheme }}
@@ -137,9 +102,9 @@ const ThemeSwitcher: React.FC = ({ children }) => {
       <style>
         {`
            body {
-             background-color: ${currentTheme?.bgPrimary};
+             background-color: ${currentTheme.bgPrimary};
              body, h1, h2, h3, h4, h5, h6, p, ol, ul {
-               color: ${currentTheme?.textPrimary}
+               color: ${currentTheme.textPrimary}
              }
            }
        `}
@@ -147,7 +112,7 @@ const ThemeSwitcher: React.FC = ({ children }) => {
       <ThemeProvider
         theme={{ mode: currentTheme }}
       >
-        <Wrapper>{children}</Wrapper>
+        <Wrapper theme={currentTheme}>{children}</Wrapper>
       </ThemeProvider>
     </ThemeToggleContext.Provider>
   );
