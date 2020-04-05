@@ -28,7 +28,7 @@ const ScrollToNext: React.FC<Props> = ({ pageSelector }) => {
         <button className="fas fa-chevron-down fa-2x" type="button" />
       </animated.div>
     </div>,
-    changeSetAnimated, alreadyAnimated
+    changeSetAnimated, alreadyAnimated, true
   );
 };
 

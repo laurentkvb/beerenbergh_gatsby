@@ -7,12 +7,10 @@
   "main": "n/a",
   "scripts": {
     "bs": "gatsby build && gatsby serve",
-    "build:serve": "gatsby build && gatsby serve",
+    "bsl": "gatsby build && gatsby serve -H 0.0.0.0",
     "build": "gatsby build",
     "local": "gatsby develop -H 0.0.0.0",
-    "local:dev": "gatsby develop -H 0.0.0.0",
     "dev": "gatsby develop",
-    "develop": "gatsby develop",
     "production": "gatsby build",
     "serve": "gatsby serve",
     "local:serve": "gatsby serve -H 0.0.0.0",

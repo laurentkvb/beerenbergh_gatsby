@@ -46,8 +46,8 @@ const AboutSection: React.FC = () => {
             <img
               src={laurentPicture}
               alt="Laurent Kleering van Beerenbergh"
-              width="250"
-              height="400"
+              width="100"
+              height="300"
             />
             <div className="about-content" style={{ color: theme.currentTheme.textPrimary }}>
               <animated.h1 style={globalAnimation}>Stack</animated.h1>

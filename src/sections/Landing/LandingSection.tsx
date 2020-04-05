@@ -11,15 +11,16 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import { useTheme } from "../../theme/ThemeSwitcher/ThemeSwitcher";
 import { FadeInOutAnimation } from "../../animations/FadeInAndOutAnimation";
 import { globalColorProps } from "../../animations/AnimationUtil";
+import { Spring } from "react-spring/renderprops-universal";
 
 export interface Props {
   data: any;
 }
 
 let counter = -1;
-const delays = [1000, 1750, 2500];
 
 const LandingSection: React.FC<Props> = ({ data }) => {
+  const delays = [1000, 1750, 2500];
   const theme = useTheme();
   const [alreadyAnimated, setAlreadyAnimated] = useState(false);
 
@@ -34,31 +35,15 @@ const LandingSection: React.FC<Props> = ({ data }) => {
     from: { opacity: 1, backgroundColor: theme.previousTheme.bgPrimary !== "" ? theme.previousTheme.bgPrimary : theme.currentTheme.bgPrimary },
   });
 
+  const heading2Props = useSpring({
+    config: { duration: 2000 },
+    display: "inline",
+    color: theme.currentTheme.colorPrimary,
+    from: { color: theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary
+      : theme.currentTheme.colorPrimary }
+  });
+
   const globalAnimation = useSpring(globalColorProps(theme));
-
-  const test = (children : ReactNode) => {
-    counter += 1;
-
-    const color = theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary
-      : theme.currentTheme.colorPrimary;
-
-    const globalAnimation1 = useSpring({
-      config: { duration: 500 },
-      delay: delays[counter],
-      display: "inline-block",
-      alignSelf: "start",
-      // width: "100px",
-      opacity: 1,
-      color: theme.currentTheme.colorPrimary,
-      from: { opacity: 0, color }
-    });
-
-    return (
-      <animated.div style={globalAnimation1} className="tagline">
-        {children}
-      </animated.div>
-    );
-  };
 
   const options = {
     renderNode: {
@@ -70,9 +55,28 @@ const LandingSection: React.FC<Props> = ({ data }) => {
         </animated.h1>
       ),
 
-      [BLOCKS.HEADING_2]: (node : any, children: ReactNode) => test(children),
-      [BLOCKS.HEADING_3]: (node : any, children: ReactNode) => test(children),
-      [BLOCKS.HEADING_4]: (node : any, children: ReactNode) => test(children),
+      [BLOCKS.HEADING_2]: (node : any, children: ReactNode) => {
+        counter += 1;
+
+        return (
+          <Spring
+            delay={delays[counter]}
+            to={{
+              opacity: 1,
+            }}
+            from={{ opacity: 0 }}
+          >
+            {({ opacity }) => (
+              <animated.div className="tagline" style={{ opacity, ...heading2Props }}>
+                {children}
+                {" "}
+              </animated.div>
+            )}
+
+          </Spring>
+
+        );
+      },
     }
   };
 

@@ -29,8 +29,7 @@
   .portfolio-wrapper {
     display: flex;
     flex-wrap: wrap;
-    //justify-content: center;
-    //align-content: start;
+    justify-content: center;
     width: 1000px;
 
     @include breakpoint-small-down {
