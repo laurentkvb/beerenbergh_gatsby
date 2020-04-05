@@ -1,8 +1,8 @@
 import React from "react";
 import "./style.scss";
-import { useTheme } from "@components/ThemeSwitcher/ThemeSwitcher";
 import { PortfolioItemModel } from "@models/contentful/PortfolioItemModel";
 import { animated, useSpring } from "react-spring";
+import { useTheme } from "../../theme/ThemeSwitcher/ThemeSwitcher";
 
 interface Props {
   item : PortfolioItemModel;
@@ -14,12 +14,12 @@ const PortfolioItem: React.FC<Props> = ({ item }) => {
   const backgroundProps = useSpring({
     config: { duration: 2000 },
     opacity: 1,
-    backgroundColor: theme.theme.colorPrimary,
-    color: theme.theme.textAlternate,
+    backgroundColor: theme.currentTheme.colorPrimary,
+    color: theme.currentTheme.textAlternate,
     from: {
       opacity: 1,
-      backgroundColor: theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary : theme.theme.colorPrimary,
-      color: theme.previousTheme.textAlternate !== "" ? theme.previousTheme.textAlternate : theme.theme.textAlternate },
+      backgroundColor: theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary : theme.currentTheme.colorPrimary,
+      color: theme.previousTheme.textAlternate !== "" ? theme.previousTheme.textAlternate : theme.currentTheme.textAlternate },
   });
 
   return (

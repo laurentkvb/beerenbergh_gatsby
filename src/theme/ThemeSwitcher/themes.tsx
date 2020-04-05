@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { RandomTheme } from "@components/ThemeSwitcher/ThemeSwitcher";
+import { Theme } from "./ThemeSwitcher";
 
 interface InternalTheme {
   name: string,
@@ -145,7 +145,7 @@ const themes: InternalTheme[] = [
   }
 ];
 
-export const getThemes = () : Array<RandomTheme> => themes.map((theme: InternalTheme) => ({
+export const getThemes = () : Array<Theme> => themes.map((theme: InternalTheme) => ({
   name: theme.name,
   firstTime: theme.firstTime,
   colorPrimary: theme.colorPrimary,

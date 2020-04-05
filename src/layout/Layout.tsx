@@ -9,7 +9,7 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme";
 import GlobalStyle from "../styles/GlobalStyle";
-import ThemeSwitcher from "@components/ThemeSwitcher/ThemeSwitcher";
+import ThemeSwitcher from "@components/../theme/ThemeSwitcher/ThemeSwitcher";
 import { SEO } from "@components/SEO";
 
 interface DefaultLayoutProps extends React.HTMLProps<HTMLDivElement> {

@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import scrollTo from "gatsby-plugin-smoothscroll";
 
 import "./style.scss";
-import { useTheme } from "@components/ThemeSwitcher/ThemeSwitcher";
 import { animated, useSpring } from "react-spring";
+import { useTheme } from "../../theme/ThemeSwitcher/ThemeSwitcher";
 
 const Nav: React.FC = () => {
   const theme = useTheme();
@@ -14,9 +14,9 @@ const Nav: React.FC = () => {
   let stickyProps;
 
   if (isSticky) {
-    stickyProps = (theme.previousTheme.navAlpha !== "" ? theme.previousTheme.navAlpha : theme.theme.navAlpha);
+    stickyProps = (theme.previousTheme.navAlpha !== "" ? theme.previousTheme.navAlpha : theme.currentTheme.navAlpha);
   } else {
-    stickyProps = theme.previousTheme.bgPrimary !== "" ? theme.previousTheme.bgPrimary : theme.theme.bgPrimary;
+    stickyProps = theme.previousTheme.bgPrimary !== "" ? theme.previousTheme.bgPrimary : theme.currentTheme.bgPrimary;
   }
 
   const stickyStyles = useSpring({
@@ -25,10 +25,10 @@ const Nav: React.FC = () => {
     from: {
       opacity: 1,
       backgroundColor: stickyProps,
-      color: theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary : theme.theme.colorPrimary
+      color: theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary : theme.currentTheme.colorPrimary
     },
-    backgroundColor: isSticky ? theme.theme.navAlpha : theme.theme.bgPrimary,
-    color: theme.theme.colorPrimary
+    backgroundColor: isSticky ? theme.currentTheme.navAlpha : theme.currentTheme.bgPrimary,
+    color: theme.currentTheme.colorPrimary
   });
 
   const handleScroll = () => {
@@ -62,7 +62,7 @@ const Nav: React.FC = () => {
       <style>
         {`
           .menu__item:hover {
-            border-bottom: 2px solid ${theme.theme.colorPrimary};
+            border-bottom: 2px solid ${theme.currentTheme.colorPrimary};
           }
         `}
       </style>

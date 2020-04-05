@@ -4,9 +4,9 @@ import laurentPicture from "../../assets/lkvb-moscow.jpg";
 
 import ScrollToNext from "../../components/ScrollToNext";
 import { aboutUsPageData } from "./AboutPaga.data";
-import { useTheme } from "@components/ThemeSwitcher/ThemeSwitcher";
 import AboutListItem from "@components/AboutListItem/AboutListItem";
 import { useSpring, animated } from "react-spring";
+import { useTheme } from "../../theme/ThemeSwitcher/ThemeSwitcher";
 
 const AboutSection: React.FC = () => {
   const theme = useTheme();
@@ -14,8 +14,8 @@ const AboutSection: React.FC = () => {
   const backgroundProps = useSpring({
     config: { duration: 2000 },
     opacity: 1,
-    backgroundColor: theme.theme.bgPrimary,
-    from: { opacity: 1, backgroundColor: theme.previousTheme.bgPrimary !== "" ? theme.previousTheme.bgPrimary : theme.theme.bgPrimary },
+    backgroundColor: theme.currentTheme.bgPrimary,
+    from: { opacity: 1, backgroundColor: theme.previousTheme.bgPrimary !== "" ? theme.previousTheme.bgPrimary : theme.currentTheme.bgPrimary },
   });
 
   return (
@@ -23,15 +23,15 @@ const AboutSection: React.FC = () => {
       <style>
         {`
           .highlight {
-            background-color: ${theme.theme.colorHighlight};
+            background-color: ${theme.currentTheme.colorHighlight};
           }
           ::selection {
-            background-color: ${theme.theme.colorHighlight};
+            background-color: ${theme.currentTheme.colorHighlight};
           }
         `}
       </style>
       <div className="content-grid">
-        <h1 className="intro-name" style={{ color: theme.theme.colorPrimary }}>About</h1>
+        <h1 className="intro-name" style={{ color: theme.currentTheme.colorPrimary }}>About</h1>
         <div className="about-wrapper">
           <img
             src={laurentPicture}
@@ -39,13 +39,13 @@ const AboutSection: React.FC = () => {
             width="250"
             height="400"
           />
-          <div className="about-content" style={{ color: theme.theme.textPrimary }}>
-            <h1 style={{ color: theme.theme.colorPrimary }}>Stack</h1>
+          <div className="about-content" style={{ color: theme.currentTheme.textPrimary }}>
+            <h1 style={{ color: theme.currentTheme.colorPrimary }}>Stack</h1>
             {aboutUsPageData.map((data, i :number) => (
               <AboutListItem key={i} header={data.topic} list={data.topics} />
             ))}
 
-            <p className="text-emoji" style={{ color: theme.theme.colorPrimary }}>
+            <p className="text-emoji" style={{ color: theme.currentTheme.colorPrimary }}>
               \ (•◡•) /
             </p>
           </div>

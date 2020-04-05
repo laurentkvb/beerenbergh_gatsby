@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./style.scss";
-import { useTheme } from "../ThemeSwitcher/ThemeSwitcher";
+import { useTheme } from "../../theme/ThemeSwitcher/ThemeSwitcher";
 import { animated, useSpring } from "react-spring";
 
 const socialMediaData = [
@@ -22,13 +22,13 @@ const socialMediaData = [
 const SocialIcons: React.FC = () => {
   const theme = useTheme();
 
-  const color = theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary : theme.theme.colorPrimary;
+  const color = theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary : theme.currentTheme.colorPrimary;
 
   const socialIconsProps = useSpring({
     config: { duration: 2000 },
     opacity: 1,
-    color: theme.theme.colorPrimary,
-    from: { opacity: 1, color },
+    color: theme.currentTheme.colorPrimary,
+    from: { opacity: 0, color },
   });
 
   return (
