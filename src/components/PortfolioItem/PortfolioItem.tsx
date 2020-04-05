@@ -16,6 +16,8 @@ const PortfolioItem: React.FC<Props> = ({ item }) => {
     opacity: 1,
     backgroundColor: theme.currentTheme.colorPrimary,
     color: theme.currentTheme.textAlternate,
+    height: "90%",
+    margin: "10px",
     from: {
       opacity: 1,
       backgroundColor: theme.previousTheme.colorPrimary !== "" ? theme.previousTheme.colorPrimary : theme.currentTheme.colorPrimary,

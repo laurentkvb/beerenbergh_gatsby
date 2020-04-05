@@ -38,13 +38,12 @@ const PortfolioSection: React.FC<Props> = ({ data }) => {
       <div className="content-grid">
         <div style={{ alignSelf: "start" }}>
           {FadeInOutAnimation(<animated.h1 className="intro-name" style={globalAnimation}>Portfolio</animated.h1>, changeSetAnimated, alreadyAnimated)}
-          {" "}
         </div>
 
         {FadeInOutAnimation(
           <div className="portfolio-wrapper">
-          <style>
-            {`
+            <style>
+              {`
               .portfolio-item {
                 background-color: ${theme.currentTheme.colorPrimary};
                 color: ${theme.currentTheme.textAlternate};
@@ -56,14 +55,15 @@ const PortfolioSection: React.FC<Props> = ({ data }) => {
                 border-bottom: 2px solid ${theme.currentTheme.colorAlternate};
               }
             `}
-          </style>
-          {data.map((item :PortfolioItemModel, i: number) => (
-            <div style={{ flex: "1 0 20%" }}>
-              <PortfolioItem item={item} key={i} />
-            </div>
+            </style>
+            {data.map((item :PortfolioItemModel, i: number) => (
+              <div>
+                <PortfolioItem item={item} key={i} />
+              </div>
 
-          ))}
-        </div>, changeSetAnimated, alreadyAnimated, true)}
+            ))}
+          </div>, changeSetAnimated, alreadyAnimated, true
+        )}
       </div>
       <ScrollToPrevious pageSelector=".landing-page" />
     </animated.div>

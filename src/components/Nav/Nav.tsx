@@ -14,11 +14,6 @@ const Nav: React.FC = () => {
   const stickyClass = isSticky ? "sticky" : "";
   let stickyProps;
 
-  console.log("theme");
-  console.log(theme);
-  console.log("theme.toggleTheme");
-  console.log(theme.toggleTheme);
-
   if (isSticky) {
     stickyProps = (theme.previousTheme.navAlpha !== "" ? theme.previousTheme.navAlpha : theme.currentTheme.navAlpha);
   } else {

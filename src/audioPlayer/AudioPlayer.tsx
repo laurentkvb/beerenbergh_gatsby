@@ -18,7 +18,8 @@ export const AudioPlayerContext = React.createContext<AudioPlayerContextProps>({
 export const useAudioPlayer = () : AudioPlayerContextProps => React.useContext(AudioPlayerContext);
 
 const AudioPlayer: React.FC = ({ children }) => {
-  const isSafari = detect()?.name === "safari";
+  // TODO check if browser is safari, then put should play to False
+  //  other wise put it to true, if its chrome
 
 
   const [shouldPlay, setShouldPlay] = useState(false);

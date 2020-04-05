@@ -1,4 +1,4 @@
-@import './src/styles/breakpoints';
+@import "../../styles/breakpoints";
 
 .portfolio-page {
   padding-top: 2rem;
@@ -29,9 +29,8 @@
   .portfolio-wrapper {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+    //justify-content: center;
+    //align-content: start;
     width: 1000px;
 
     @include breakpoint-small-down {
