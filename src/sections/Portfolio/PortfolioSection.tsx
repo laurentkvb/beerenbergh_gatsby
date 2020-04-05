@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
+import "../About/style.scss";
 
 import PortfolioItem from "@components/PortfolioItem";
 import { PortfolioItemModel } from "@models/contentful/PortfolioItemModel";
 import ScrollToPrevious from "@components/ScrollToPrevious/ScrollToPrevious";
 import { animated, useSpring } from "react-spring";
 import { useTheme } from "../../theme/ThemeSwitcher/ThemeSwitcher";
+import { FadeInOutAnimation } from "../../animations/FadeInAndOutAnimation";
+import { globalColorProps } from "../../animations/AnimationUtil";
 
 interface Props {
   data : PortfolioItemModel[]
@@ -14,6 +17,12 @@ interface Props {
 const PortfolioSection: React.FC<Props> = ({ data }) => {
   const theme = useTheme();
 
+  const [alreadyAnimated, setAlreadyAnimated] = useState(false);
+
+  const changeSetAnimated = () => {
+    setAlreadyAnimated(true);
+  };
+
   const backgroundProps = useSpring({
     config: { duration: 2000 },
     opacity: 1,
@@ -21,11 +30,19 @@ const PortfolioSection: React.FC<Props> = ({ data }) => {
     from: { opacity: 1, backgroundColor: theme.previousTheme.bgPrimary !== "" ? theme.previousTheme.bgPrimary : theme.currentTheme.bgPrimary },
   });
 
+  const globalAnimation = useSpring(globalColorProps(theme));
+
+
   return (
     <animated.div className="portfolio-page" style={backgroundProps}>
       <div className="content-grid">
-        <h1 style={{ color: theme.currentTheme.colorPrimary }}>Portfolio</h1>
-        <div className="portfolio-wrapper">
+        <div style={{ alignSelf: "start" }}>
+          {FadeInOutAnimation(<animated.h1 className="intro-name" style={globalAnimation}>Portfolio</animated.h1>, changeSetAnimated, alreadyAnimated)}
+          {" "}
+        </div>
+
+        {FadeInOutAnimation(
+          <div className="portfolio-wrapper">
           <style>
             {`
               .portfolio-item {
@@ -46,10 +63,11 @@ const PortfolioSection: React.FC<Props> = ({ data }) => {
             </div>
 
           ))}
-        </div>
+        </div>, changeSetAnimated, alreadyAnimated, true)}
       </div>
       <ScrollToPrevious pageSelector=".landing-page" />
     </animated.div>
+
   );
 };
 

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState } from "react";
 import "./style.scss";
 
 import SocialIcons from "@components/SocialIcons";
@@ -10,6 +10,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS } from "@contentful/rich-text-types";
 import { globalColorProps } from "../../animations/AnimationUtil";
 import { useTheme } from "../../theme/ThemeSwitcher/ThemeSwitcher";
+import { FadeInOutAnimation } from "../../animations/FadeInAndOutAnimation";
 
 export interface Props {
   data: any;
@@ -17,6 +18,11 @@ export interface Props {
 
 const LandingSection: React.FC<Props> = ({ data }) => {
   const theme = useTheme();
+  const [alreadyAnimated, setAlreadyAnimated] = useState(false);
+
+  const changeSetAnimated = () => {
+    setAlreadyAnimated(true);
+  };
 
   const backgroundProps = useSpring({
     config: { duration: 2000 },
@@ -53,15 +59,18 @@ const LandingSection: React.FC<Props> = ({ data }) => {
     >
       <Nav />
       <main style={{ color: theme.currentTheme.colorPrimary }}>
-        <div className="intro-wrapper">
-          <br />
+        {FadeInOutAnimation(
+          <div className="intro-wrapper">
+            <br />
 
 
-          {documentToReactComponents(data.json, options)}
+            {documentToReactComponents(data.json, options)}
 
 
-          <SocialIcons />
-        </div>
+            <SocialIcons />
+          </div>,
+          changeSetAnimated, alreadyAnimated
+        )}
       </main>
       <div className="ding">
         <ScrollToNext pageSelector=".about-page" />

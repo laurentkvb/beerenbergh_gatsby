@@ -1,5 +1,5 @@
 
-export const aboutUsPageData = [
+export const aboutUsSectionData = [
   {
     topic: "Programming languages",
     topics: ["Java", "JavaScript", "Python", "HTML", "SQL"],

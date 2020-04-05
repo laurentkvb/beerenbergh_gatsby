@@ -3,14 +3,14 @@ import scrollTo from "gatsby-plugin-smoothscroll";
 
 import "./style.scss";
 import { useTheme } from "../../theme/ThemeSwitcher/ThemeSwitcher";
+import { useSpring, animated } from "react-spring";
+import { globalColorProps } from "../../animations/AnimationUtil";
 
 const ScrollTop : React.FC = () => {
   const [shouldShowScrollTopArrow, setShouldShowScrollTopArrow] = useState(false);
-
   const theme = useTheme();
-
-
   const hideArrowClass = shouldShowScrollTopArrow ? "" : "hide";
+  const globalAnimation = useSpring(globalColorProps(theme));
 
 
   const handleScroll = () => {
@@ -42,13 +42,13 @@ const ScrollTop : React.FC = () => {
 
   return (
     <div className="scroll-top" onClick={() => scrollTo(".landing-page")}>
-      <div
+      <animated.div
         className={`arrow ${hideArrowClass}`}
-        style={{ color: theme.currentTheme.colorPrimary }}
+        style={globalAnimation}
       >
         <button className="fas fa-angle-double-up fa-2x" type="button" />
         <div className="to-top">To Top</div>
-      </div>
+      </animated.div>
     </div>
   );
 };

@@ -10,7 +10,7 @@ import { Theme } from "./interfaces/Theme";
 
 const DEFAULT_CHOSEN_INDEX_FROM_THEMES = 7;
 
-const intervalInMS = 5000;
+const intervalInMS = 15000;
 const themeInitialState = {
   name: "",
   firstTime: false,
@@ -80,7 +80,7 @@ const ThemeSwitcher: React.FC = ({ children }) => {
         const randomTheme : Theme = currentTheme;
 
         const themesWithoutCurrentTheme : Array<Theme> = getThemes()
-          .filter((theme1 : Theme) => theme1.name !== randomTheme.name);
+          .filter((theme : Theme) => theme.name !== randomTheme.name);
 
         const randomThemeIndex = Math.floor(
           Math.random() * themesWithoutCurrentTheme.length
