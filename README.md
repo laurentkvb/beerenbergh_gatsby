@@ -4,9 +4,9 @@
 
 > ### React Typescript codebase using [Gatsby](https://www.gatsbyjs.org/)
 
-##Getting started
+## Getting started
 
-###Prerequisites
+### Prerequisites
 
 - Clone this repo
 - Install all the required dependencies, using the following command
