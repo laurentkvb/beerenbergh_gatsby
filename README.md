@@ -1,78 +1,132 @@
-# BeerenberghWeb
+# Portfolio Website - Laurent Kleering van Beerenbergh
 
-![Alt text](./src/components/Logo/logo.svg)
+A minimalist, Apple-inspired portfolio website showcasing development projects and music.
 
-> ### React Typescript codebase using [Gatsby](https://www.gatsbyjs.org/)
+## 🚀 Tech Stack
 
-## Getting started
+- **Framework:** Next.js 15 (App Router)
+- **Language:** TypeScript
+- **Styling:** TailwindCSS
+- **Animations:** Framer Motion
+- **Icons:** lucide-react
+- **Fonts:** Geist Sans & Geist Mono
+- **Dark Mode:** next-themes
+- **Deployment:** Vercel
+
+## 🛠️ Getting Started
 
 ### Prerequisites
 
-- Clone this repo
-- Install all the required dependencies, using the following command
+- Node.js 18+ installed
+- npm or yarn package manager
 
-```
-yarn
-```
+### Installation
 
-### Running the frontend locally
-
-Run the local server, using the local command
-
-```
-yarn develop
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd beerenbergh-portfolio
 ```
 
-### Running the Production build locally
-
-It is important to test if the Development build of your work is working on the production build. For this, you can create a production build of the app in Gatsby etc.
-
-**Building & running the production build**
-First you need to generate a production build, using the following command
-
-```
-yarn production
+2. Install dependencies:
+```bash
+npm install
 ```
 
-When no errors could be found generating the production build, use the following commands to serve the production build locally
-
-```
-yarn production:serve
-```
-
-### Testing
-
-Run the local server, using the local command
-
-```
-yarn test
+3. Run the development server:
+```bash
+npm run dev
 ```
 
-### Using ESLINT
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-The project is also using ESLint statically analyzes our code to quickly find problems. And make sure that throughout
-our codebase the same style is being used.
-
-To detect linting errors, the following command should be used
+## 📁 Project Structure
 
 ```
-yarn lint
+/app
+  layout.tsx          # Root layout with fonts and theme provider
+  page.tsx            # Main home page
+  globals.css         # Global styles
+/components
+  Hero.tsx            # Hero section with animated intro
+  AboutSection.tsx    # About section with bio and image
+  ProjectGrid.tsx     # Projects showcase with cards
+  MusicSection.tsx    # SoundCloud embeds
+  Footer.tsx          # Footer with social links
+/lib
+  seo.ts              # SEO configuration and helpers
+  analytics.ts        # Analytics setup (Vercel/Plausible)
+/public
+  /images
+    laurent.jpg       # Portrait image (replace with actual photo)
 ```
 
-To detect & fix linting errors, the following command should be used
+## 🎨 Design Features
 
+- **Max width:** 960px centered layout
+- **Colors:** Apple Blue (#007AFF) accent
+- **Typography:** Geist Sans font family
+- **Animations:** Smooth fade-in and slide-up transitions
+- **Responsive:** Mobile-first design
+- **Accessibility:** Semantic HTML and ARIA labels
+
+## 📝 Customization
+
+### Update Personal Information
+
+1. **Social Links:** Edit links in `components/Hero.tsx` and `components/Footer.tsx`
+2. **Bio:** Update text in `components/AboutSection.tsx`
+3. **Projects:** Modify the projects array in `components/ProjectGrid.tsx`
+4. **Music:** Replace SoundCloud URLs in `components/MusicSection.tsx`
+5. **Image:** Replace `/public/images/laurent.jpg` with your portrait
+6. **SEO:** Update metadata in `lib/seo.ts`
+
+### Environment Variables
+
+Create a `.env.local` file for analytics:
+
+```bash
+# Vercel Analytics
+NEXT_PUBLIC_VERCEL_ANALYTICS_ID=your-id
+
+# Plausible Analytics
+NEXT_PUBLIC_PLAUSIBLE_DOMAIN=yourdomain.com
 ```
-yarn lint:fix
-```
 
-### Storybook
+## 🚢 Deployment
 
-[Storybook](https://storybook.js.org/) is an open source tool for developing UI components in isolation.
-Here you can see the components that are being used. In the storybook environment you can see how these components
-can be used in the code.
+### Deploy to Vercel (Recommended)
 
-**Running storybook**
+1. Push your code to GitHub
+2. Import the project in [Vercel](https://vercel.com)
+3. Vercel will automatically detect Next.js and configure settings
+4. Add environment variables in Vercel dashboard
+5. Deploy!
 
-```
-yarn storybook
-```
+The site is optimized for static generation (SSG) for maximum performance.
+
+## 📊 Performance
+
+The website is optimized for:
+- ✅ Lightning-fast load times
+- ✅ Perfect Lighthouse scores
+- ✅ SEO optimization
+- ✅ Accessibility standards
+- ✅ Responsive design
+- ✅ Smooth animations
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 🤝 Contact
+
+Laurent Kleering van Beerenbergh
+- GitHub: [@laurentkleering](https://github.com/laurentkleering)
+- LinkedIn: [laurentkleering](https://linkedin.com/in/laurentkleering)
+- Email: laurent@example.com
+
+---
+
+Built with ❤️ using Next.js and TailwindCSS
+
