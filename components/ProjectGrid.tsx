@@ -52,7 +52,7 @@ const projects = [
     link: "https://rebels.io/",
     icon: Code,
     iconColor: "text-red-600",
-    duration: "Sep 2020 - May 2021",
+    duration: "Dec 2019 - Apr 2024",
     startYear: 2020,
     startMonth: 9,
     endYear: 2021,
@@ -78,7 +78,7 @@ const projects = [
     link: "https://hely.com/",
     icon: Bike,
     iconColor: "text-cyan-600",
-    duration: "Mar 2019 - Aug 2020",
+    duration: "Aug 2018 - October 2019",
     startYear: 2019,
     startMonth: 3,
     endYear: 2020,
@@ -146,7 +146,7 @@ export default function ProjectGrid() {
                 const IconComponent = project.icon;
                 const startPos = getProjectPosition(project.startYear, project.startMonth);
                 let width = getProjectWidth(project.startYear, project.startMonth, project.endYear, project.endMonth);
-                
+
                 // Make Nieuwe Kafe wider for better visibility
                 if (project.title === 'Nieuwe Kafe Website') {
                   width = Math.max(width * 2.5, 4); // At least 4% width
@@ -166,14 +166,14 @@ export default function ProjectGrid() {
                       height: '28px',
                     }}
                   >
-                    <div 
+                    <div
                       className={`h-full rounded-lg ${project.iconColor.replace('text-', 'bg-')} bg-opacity-30 border-2 ${project.iconColor.replace('text-', 'border-')} flex items-center ${project.title === 'Nieuwe Kafe Website' ? 'justify-center' : ''} px-2 gap-2 hover:bg-opacity-50 transition-all duration-200 cursor-pointer relative overflow-hidden`}
                     >
                       <IconComponent className={`w-4 h-4 ${project.iconColor} flex-shrink-0`} />
                       <span className="text-xs font-semibold text-gray-800 truncate">
                         {project.title}
                       </span>
-                      
+
                       {/* Tooltip */}
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
                         {project.duration}
