@@ -15,28 +15,49 @@ export default function Footer() {
               href="https://github.com/laurentkleering"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-apple-blue transition-colors duration-200 hover:scale-110 transform"
+              className="hover:scale-110 transform transition-transform duration-200"
               aria-label="GitHub"
             >
-              <Github className="w-6 h-6" />
+              <Github className="w-6 h-6 stroke-[2.5] [stroke:url(#gradient1)]" />
             </a>
             <a
               href="https://linkedin.com/in/laurentkleering"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-apple-blue transition-colors duration-200 hover:scale-110 transform"
+              className="hover:scale-110 transform transition-transform duration-200"
               aria-label="LinkedIn"
             >
-              <Linkedin className="w-6 h-6" />
+              <Linkedin className="w-6 h-6 stroke-[2.5] [stroke:url(#gradient2)]" />
             </a>
             <a
               href="mailto:lkvb90@gmail.com"
-              className="hover:text-apple-blue transition-colors duration-200 hover:scale-110 transform"
+              className="hover:scale-110 transform transition-transform duration-200"
               aria-label="Email"
             >
-              <Mail className="w-6 h-6" />
+              <Mail className="w-6 h-6 stroke-[2.5] [stroke:url(#gradient3)]" />
             </a>
           </div>
+
+          {/* SVG Gradients for icons */}
+          <svg width="0" height="0" className="absolute">
+            <defs>
+              <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#000000" />
+                <stop offset="50%" stopColor="#dc2626" />
+                <stop offset="100%" stopColor="#f97316" />
+              </linearGradient>
+              <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#f97316" />
+                <stop offset="50%" stopColor="#dc2626" />
+                <stop offset="100%" stopColor="#000000" />
+              </linearGradient>
+              <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#000000" />
+                <stop offset="50%" stopColor="#dc2626" />
+                <stop offset="100%" stopColor="#f97316" />
+              </linearGradient>
+            </defs>
+          </svg>
 
           {/* Copyright */}
           <p className="text-gray-400 text-center">

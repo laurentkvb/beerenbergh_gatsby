@@ -110,7 +110,7 @@ export default function ProjectGrid() {
   };
 
   return (
-    <section id="projects" className="py-24 px-8 md:px-12 lg:px-16 bg-apple-gray" ref={ref}>
+    <section id="projects" className="py-24 px-8 md:px-12 lg:px-16 bg-white" ref={ref}>
       <div className="max-w-content mx-auto w-full">
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
@@ -121,12 +121,12 @@ export default function ProjectGrid() {
           Projects
         </motion.h2>
 
-        {/* Timeline Visualization */}
+        {/* Timeline Visualization - Hidden on mobile */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mb-16 max-w-6xl mx-auto"
+          className="mb-16 max-w-6xl mx-auto hidden md:block"
         >
           <div className="relative bg-white rounded-2xl p-8 shadow-lg">
             {/* Year Markers */}
@@ -145,7 +145,12 @@ export default function ProjectGrid() {
               {projects.map((project, index) => {
                 const IconComponent = project.icon;
                 const startPos = getProjectPosition(project.startYear, project.startMonth);
-                const width = getProjectWidth(project.startYear, project.startMonth, project.endYear, project.endMonth);
+                let width = getProjectWidth(project.startYear, project.startMonth, project.endYear, project.endMonth);
+                
+                // Make Nieuwe Kafe wider for better visibility
+                if (project.title === 'Nieuwe Kafe Website') {
+                  width = Math.max(width * 2.5, 4); // At least 4% width
+                }
 
                 return (
                   <motion.div
@@ -162,7 +167,7 @@ export default function ProjectGrid() {
                     }}
                   >
                     <div 
-                      className={`h-full rounded-lg ${project.iconColor.replace('text-', 'bg-')} bg-opacity-30 border-2 ${project.iconColor.replace('text-', 'border-')} flex items-center px-2 gap-2 hover:bg-opacity-50 transition-all duration-200 cursor-pointer relative overflow-hidden`}
+                      className={`h-full rounded-lg ${project.iconColor.replace('text-', 'bg-')} bg-opacity-30 border-2 ${project.iconColor.replace('text-', 'border-')} flex items-center ${project.title === 'Nieuwe Kafe Website' ? 'justify-center' : ''} px-2 gap-2 hover:bg-opacity-50 transition-all duration-200 cursor-pointer relative overflow-hidden`}
                     >
                       <IconComponent className={`w-4 h-4 ${project.iconColor} flex-shrink-0`} />
                       <span className="text-xs font-semibold text-gray-800 truncate">
@@ -222,13 +227,13 @@ export default function ProjectGrid() {
                   {project.stack.slice(0, 3).map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 text-xs bg-apple-gray text-gray-700 rounded-full"
+                      className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded-full"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.stack.length > 3 && (
-                    <span className="px-2 py-1 text-xs bg-apple-gray text-gray-700 rounded-full">
+                    <span className="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded-full">
                       +{project.stack.length - 3}
                     </span>
                   )}

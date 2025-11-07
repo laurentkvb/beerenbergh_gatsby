@@ -13,7 +13,7 @@ const traits = [
   "Adaptable",
   "Self-Motivated",
   "Proactive",
-  "Fun Personality",
+  "Fun",
   "Positive",
 ];
 
@@ -98,12 +98,11 @@ export default function AboutSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="pt-8 border-t border-gray-200"
             >
               <h3 className="text-xl font-semibold text-gray-900 text-center mb-6">
                 Personal Traits
               </h3>
-              
+
               <div className="flex flex-wrap justify-center gap-3 mb-4">
                 {visibleTraits.map((trait, index) => (
                   <motion.span
