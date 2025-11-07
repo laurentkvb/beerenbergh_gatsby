@@ -2,12 +2,27 @@
 
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
+import { ChevronDown, ChevronUp } from "lucide-react";
+
+const traits = [
+  "Collaborative",
+  "Detail-Oriented",
+  "Strong Communicator",
+  "Adaptable",
+  "Self-Motivated",
+  "Proactive",
+  "Fun Personality",
+  "Positive",
+];
 
 export default function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [showAllTraits, setShowAllTraits] = useState(false);
+
+  const visibleTraits = showAllTraits ? traits : traits.slice(0, 5);
 
   return (
     <section id="about" className="py-24 px-8 md:px-12 lg:px-16 bg-white" ref={ref}>
@@ -77,6 +92,53 @@ export default function AboutSection() {
                 Music teaches me rhythm, listening, and improvisation — the same qualities that shape my work as a developer.
               </p>
             </div>
+
+            {/* Personal Traits Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="pt-8 border-t border-gray-200"
+            >
+              <h3 className="text-xl font-semibold text-gray-900 text-center mb-6">
+                Personal Traits
+              </h3>
+              
+              <div className="flex flex-wrap justify-center gap-3 mb-4">
+                {visibleTraits.map((trait, index) => (
+                  <motion.span
+                    key={trait}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: showAllTraits ? 0 : index * 0.1 }}
+                    className="px-4 py-2 bg-gradient-to-r from-red-50 to-rose-50 text-gray-800 rounded-full text-sm font-medium border border-red-200 hover:border-red-400 hover:shadow-md transition-all duration-200"
+                  >
+                    {trait}
+                  </motion.span>
+                ))}
+              </div>
+
+              {traits.length > 5 && (
+                <div className="text-center">
+                  <button
+                    onClick={() => setShowAllTraits(!showAllTraits)}
+                    className="inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors duration-200"
+                  >
+                    {showAllTraits ? (
+                      <>
+                        Show Less
+                        <ChevronUp className="w-4 h-4" />
+                      </>
+                    ) : (
+                      <>
+                        Show More ({traits.length - 5} more)
+                        <ChevronDown className="w-4 h-4" />
+                      </>
+                    )}
+                  </button>
+                </div>
+              )}
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
