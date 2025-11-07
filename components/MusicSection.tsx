@@ -10,8 +10,8 @@ export default function MusicSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="music" className="py-24 px-6 bg-white" ref={ref}>
-      <div className="max-w-content mx-auto">
+    <section id="music" className="py-24 px-8 md:px-12 lg:px-16 bg-white" ref={ref}>
+      <div className="max-w-content mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}

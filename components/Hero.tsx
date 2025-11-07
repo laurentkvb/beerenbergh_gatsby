@@ -5,8 +5,8 @@ import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 bg-gradient-to-b from-[#fafafa] to-white">
-      <div className="max-w-content mx-auto text-center">
+    <section className="relative min-h-screen flex items-center justify-center px-8 md:px-12 lg:px-16 bg-gradient-to-b from-[#fafafa] to-white">
+      <div className="max-w-content mx-auto text-center w-full">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

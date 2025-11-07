@@ -6,8 +6,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-12 px-6 bg-apple-dark text-white">
-      <div className="max-w-content mx-auto">
+    <footer className="py-12 px-8 md:px-12 lg:px-16 bg-apple-dark text-white">
+      <div className="max-w-content mx-auto w-full">
         <div className="flex flex-col items-center gap-6">
           {/* Social Links */}
           <div className="flex items-center gap-6">
