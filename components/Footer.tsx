@@ -61,7 +61,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-gray-400 text-center">
-            © {currentYear} Laurent Kleering van Beerenbergh — built with React & care.
+            © {currentYear} Laurent Kleering van Beerenbergh — built with Next.js ❤️
           </p>
         </div>
       </div>
