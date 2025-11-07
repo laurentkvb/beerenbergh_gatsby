@@ -72,7 +72,7 @@ export default function ProjectGrid() {
           Projects
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-[1200px] mx-auto">
           {projects.map((project, index) => {
             const IconComponent = project.icon;
             return (
@@ -81,7 +81,7 @@ export default function ProjectGrid() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: 0.1 * index }}
-                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col"
+                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 flex flex-col w-full max-w-sm"
               >
                 {/* Icon */}
                 <div className={`w-12 h-12 rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center mb-4 ${project.iconColor}`}>

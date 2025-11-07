@@ -53,18 +53,30 @@ export default function AboutSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="max-w-3xl space-y-6 text-gray-700 text-lg leading-relaxed"
+            className="max-w-4xl w-full space-y-10"
           >
-            <p className="text-justify">
-              I&apos;m a full-stack developer with over 7 years of experience building scalable, user-centered applications.
-              My strength lies in combining technical depth with clear communication and a creative mindset.
-              I&apos;ve worked with teams at <span className="font-semibold text-gray-900">VGZ</span>, <span className="font-semibold text-gray-900">Ayvens (LeasePlan)</span>, and <span className="font-semibold text-gray-900">Rebels.io</span>, focusing on frontend excellence with React and TypeScript, backend stability with Java and .NET, and delivering high-performance solutions across web and mobile platforms.
-            </p>
+            {/* Developer Section */}
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-gray-900 text-center mb-6">
+                Developer
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed text-justify">
+                I&apos;m a full-stack developer with over 7 years of experience building scalable, user-centered applications.
+                My strength lies in combining technical depth with clear communication and a creative mindset.
+                I&apos;ve worked with teams at <span className="font-semibold text-gray-900">VGZ</span>, <span className="font-semibold text-gray-900">Ayvens (LeasePlan)</span>, and <span className="font-semibold text-gray-900">Rebels.io</span>, focusing on frontend excellence with React and TypeScript, backend stability with Java and .NET, and delivering high-performance solutions across web and mobile platforms.
+              </p>
+            </div>
 
-            <p className="text-justify">
-              Outside of code, I&apos;m a bass guitarist in the reggae band <span className="font-semibold text-gray-900">Jah Riddim</span> and a freelance musician in the pop, rock, and R&B scene.
-              Music teaches me rhythm, listening, and improvisation — the same qualities that shape my work as a developer.
-            </p>
+            {/* Musician Section */}
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold text-gray-900 text-center mb-6">
+                Also...
+              </h3>
+              <p className="text-lg text-gray-700 leading-relaxed text-justify">
+                Outside of code, I&apos;m a bass guitarist in the reggae band <span className="font-semibold text-gray-900">Jah Riddim</span> and a freelance musician in the pop, rock, and R&B scene.
+                Music teaches me rhythm, listening, and improvisation — the same qualities that shape my work as a developer.
+              </p>
+            </div>
           </motion.div>
         </motion.div>
       </div>
