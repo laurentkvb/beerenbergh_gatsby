@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Building2, Car, FileText, Code, Coffee, Bike } from "lucide-react";
+import { ExternalLink, Building2, Car, FileText, Code, Coffee, Bike, Calendar } from "lucide-react";
 
 const projects = [
   {
@@ -13,6 +13,11 @@ const projects = [
     link: "https://www.vgz.nl/vgz-app",
     icon: Building2,
     iconColor: "text-blue-600",
+    duration: "Apr 2024 - Current",
+    startYear: 2024,
+    startMonth: 4,
+    endYear: null,
+    endMonth: null,
   },
   {
     title: "Ayvens (LeasePlan Rebrand)",
@@ -21,6 +26,11 @@ const projects = [
     link: "https://usedcars.ayvens.com/pt-pt",
     icon: Car,
     iconColor: "text-green-600",
+    duration: "Jun 2023 - Mar 2024",
+    startYear: 2023,
+    startMonth: 6,
+    endYear: 2024,
+    endMonth: 3,
   },
   {
     title: "LeasePlan PPA System",
@@ -29,6 +39,11 @@ const projects = [
     link: "https://www.ayvens.com/nl-nl/",
     icon: FileText,
     iconColor: "text-purple-600",
+    duration: "Jun 2021 - Jun 2023",
+    startYear: 2021,
+    startMonth: 6,
+    endYear: 2023,
+    endMonth: 6,
   },
   {
     title: "Rebels.io Digital Solutions",
@@ -37,6 +52,11 @@ const projects = [
     link: "https://rebels.io/",
     icon: Code,
     iconColor: "text-red-600",
+    duration: "Sep 2020 - May 2021",
+    startYear: 2020,
+    startMonth: 9,
+    endYear: 2021,
+    endMonth: 5,
   },
   {
     title: "Nieuwe Kafe Website",
@@ -45,6 +65,11 @@ const projects = [
     link: "https://www.nieuwe-kafe.nl/",
     icon: Coffee,
     iconColor: "text-amber-600",
+    duration: "Mar 2021 - Apr 2021",
+    startYear: 2021,
+    startMonth: 3,
+    endYear: 2021,
+    endMonth: 4,
   },
   {
     title: "Hely Mobility Platform",
@@ -53,12 +78,36 @@ const projects = [
     link: "https://hely.com/",
     icon: Bike,
     iconColor: "text-cyan-600",
+    duration: "Mar 2019 - Aug 2020",
+    startYear: 2019,
+    startMonth: 3,
+    endYear: 2020,
+    endMonth: 8,
   },
 ];
 
 export default function ProjectGrid() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  // Calculate timeline range
+  const minYear = 2019;
+  const currentYear = new Date().getFullYear();
+  const currentMonth = new Date().getMonth() + 1;
+  const totalMonths = (currentYear - minYear) * 12 + currentMonth;
+
+  const getProjectPosition = (year: number, month: number) => {
+    const monthsSinceStart = (year - minYear) * 12 + month;
+    return (monthsSinceStart / totalMonths) * 100;
+  };
+
+  const getProjectWidth = (startYear: number, startMonth: number, endYear: number | null, endMonth: number | null) => {
+    const startPos = getProjectPosition(startYear, startMonth);
+    const endPos = endYear && endMonth
+      ? getProjectPosition(endYear, endMonth)
+      : 100;
+    return endPos - startPos;
+  };
 
   return (
     <section id="projects" className="py-24 px-8 md:px-12 lg:px-16 bg-apple-gray" ref={ref}>
@@ -71,6 +120,67 @@ export default function ProjectGrid() {
         >
           Projects
         </motion.h2>
+
+        {/* Timeline Visualization */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-16 max-w-6xl mx-auto"
+        >
+          <div className="relative bg-white rounded-2xl p-8 shadow-lg">
+            {/* Year Markers */}
+            <div className="flex justify-between mb-4 text-sm font-semibold text-gray-600">
+              <span>2019</span>
+              <span>2020</span>
+              <span>2021</span>
+              <span>2022</span>
+              <span>2023</span>
+              <span>2024</span>
+              <span className="text-green-600">Now</span>
+            </div>
+
+            {/* Main Timeline Bar with Projects */}
+            <div className="relative h-32 bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 rounded-xl border-2 border-gray-200 overflow-hidden">
+              {projects.map((project, index) => {
+                const IconComponent = project.icon;
+                const startPos = getProjectPosition(project.startYear, project.startMonth);
+                const width = getProjectWidth(project.startYear, project.startMonth, project.endYear, project.endMonth);
+
+                return (
+                  <motion.div
+                    key={project.title}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                    transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                    className="absolute group"
+                    style={{
+                      left: `${Math.max(0.5, startPos)}%`,
+                      width: `${Math.min(width, 99 - startPos)}%`,
+                      top: `${12 + (index % 3) * 36}px`,
+                      height: '28px',
+                    }}
+                  >
+                    <div 
+                      className={`h-full rounded-lg ${project.iconColor.replace('text-', 'bg-')} bg-opacity-30 border-2 ${project.iconColor.replace('text-', 'border-')} flex items-center px-2 gap-2 hover:bg-opacity-50 transition-all duration-200 cursor-pointer relative overflow-hidden`}
+                    >
+                      <IconComponent className={`w-4 h-4 ${project.iconColor} flex-shrink-0`} />
+                      <span className="text-xs font-semibold text-gray-800 truncate">
+                        {project.title}
+                      </span>
+                      
+                      {/* Tooltip */}
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+                        {project.duration}
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-1 border-4 border-transparent border-t-gray-900"></div>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </div>
+        </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center max-w-[1200px] mx-auto">
           {projects.map((project, index) => {
@@ -88,13 +198,26 @@ export default function ProjectGrid() {
                   <IconComponent className="w-6 h-6" />
                 </div>
 
+                {/* Duration Badge */}
+                <div className="flex items-center gap-2 mb-3">
+                  <Calendar className="w-4 h-4 text-gray-500" />
+                  <span className="text-sm font-medium text-gray-600">
+                    {project.duration}
+                  </span>
+                  {project.endYear === null && (
+                    <span className="px-2 py-0.5 text-xs bg-green-100 text-green-700 rounded-full font-medium">
+                      Current
+                    </span>
+                  )}
+                </div>
+
                 <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {project.title}
                 </h3>
                 <p className="text-gray-600 mb-4 leading-relaxed text-sm flex-grow">
                   {project.description}
                 </p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.stack.slice(0, 3).map((tech) => (
                     <span
