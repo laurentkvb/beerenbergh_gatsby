@@ -41,22 +41,24 @@ export default function AboutSection() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-600 via-red-600 to-black bg-clip-text text-transparent mb-6">
               About Me
             </h2>
             <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
               <p>
-                Hey, I&apos;m Laurent — a developer and musician from the Netherlands. 
-                I build apps that are intuitive, fast, and human-centered.
+                I&apos;m a full-stack developer with over 7 years of experience building scalable, 
+                user-centered applications. My strength lies in combining technical depth with 
+                clear communication and a creative mindset.
               </p>
               <p>
-                When I&apos;m not coding, I&apos;m laying down basslines and producing music. 
-                The rhythm and discipline from music inspire how I approach software: 
-                with precision, creativity, and a focus on the experience.
+                I&apos;ve worked with teams at VGZ, Ayvens (LeasePlan), and Rebels.io, focusing on 
+                frontend excellence with React and TypeScript, backend stability with Java and .NET, 
+                and delivering high-performance solutions across web and mobile platforms.
               </p>
               <p>
-                I specialize in React, TypeScript, and building scalable front-end 
-                architectures that users love to interact with.
+                Outside of code, I&apos;m a bass guitarist in the reggae band Jah Riddim and a 
+                freelance musician in the pop, rock, and R&B scene. Music teaches me rhythm, 
+                listening, and improvisation — the same qualities that shape my work as a developer.
               </p>
             </div>
           </motion.div>

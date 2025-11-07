@@ -19,13 +19,14 @@ export default function MusicSection() {
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-3 mb-4">
-            <Music className="w-8 h-8 text-apple-blue" />
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+            <Music className="w-8 h-8 text-gray-600" />
+            <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-700 via-gray-600 to-gray-500 bg-clip-text text-transparent">
               Music
             </h2>
           </div>
-          <p className="text-xl text-gray-600">
-            Music fuels my creativity.
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Outside of software, I play bass in Jah Riddim — a reggae band that performs across Europe. 
+            I also produce and record my own music, blending groove and emotion with precision and sound design.
           </p>
         </motion.div>
 
