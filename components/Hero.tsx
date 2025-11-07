@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowDown, Sparkles } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Hero() {
+  const { t } = useLanguage();
+  
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center px-6 md:px-12 lg:px-16 bg-gradient-to-b from-white via-[#fafafa] to-white overflow-hidden">
       {/* Subtle animated background elements */}
@@ -36,7 +39,7 @@ export default function Hero() {
         >
           <Sparkles className="w-4 h-4 text-orange-600" />
           <span className="text-sm font-medium text-gray-700">
-            Full-Stack Developer • Musician • Problem Solver
+            {t.hero.badge}
           </span>
         </motion.div>
 
@@ -48,12 +51,12 @@ export default function Hero() {
         >
           <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-4 leading-[1.1]">
             <span className="bg-gradient-to-r from-black via-red-600 to-orange-500 bg-clip-text text-transparent">
-              I Build Apps
+              {t.hero.title1}
             </span>
           </h1>
           <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-8 leading-[1.1]">
             <span className="text-gray-900">
-              People Love to Use
+              {t.hero.title2}
             </span>
           </h1>
         </motion.div>
@@ -65,7 +68,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-xl md:text-2xl text-gray-600 mb-4 max-w-3xl mx-auto leading-relaxed"
         >
-          7+ years crafting scalable web and mobile solutions.
+          {t.hero.subtitle1}
         </motion.p>
         
         <motion.p
@@ -74,7 +77,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="text-lg md:text-xl text-gray-500 mb-12 max-w-2xl mx-auto"
         >
-          From React frontends to Java backends — I turn complex problems into elegant, human-centered experiences.
+          {t.hero.subtitle2}
         </motion.p>
 
         {/* CTA buttons - clear hierarchy */}
@@ -89,7 +92,7 @@ export default function Hero() {
             className="group relative px-8 py-4 bg-gradient-to-r from-black via-red-600 to-orange-500 text-white rounded-full hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105 text-lg font-semibold w-full sm:w-auto flex items-center justify-center gap-2"
           >
             <Mail className="w-5 h-5" />
-            <span>Start a Project</span>
+            <span>{t.hero.ctaPrimary}</span>
             <motion.span
               className="absolute -right-1 -top-1 flex h-3 w-3"
               animate={{ scale: [1, 1.3, 1] }}
@@ -104,7 +107,7 @@ export default function Hero() {
             href="#about"
             className="group px-8 py-4 border-2 border-gray-300 text-gray-900 rounded-full hover:border-gray-900 hover:bg-gray-50 transition-all duration-300 hover:scale-105 text-lg font-medium w-full sm:w-auto flex items-center justify-center gap-2"
           >
-            <span>Learn More</span>
+            <span>{t.hero.ctaSecondary}</span>
             <ArrowDown className="w-5 h-5 group-hover:translate-y-0.5 transition-transform" />
           </a>
         </motion.div>
@@ -136,7 +139,7 @@ export default function Hero() {
             <span className="font-medium">LinkedIn</span>
           </a>
           <span className="w-1 h-1 bg-gray-300 rounded-full" />
-          <span className="font-medium">Amsterdam, NL</span>
+          <span className="font-medium">{t.hero.location}</span>
         </motion.div>
 
         {/* Scroll indicator - removed bouncing chevron, now part of CTA */}

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink, Building2, Car, FileText, Code, Coffee, Bike, Calendar } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const projects = [
   {
@@ -89,6 +90,7 @@ const projects = [
 export default function ProjectGrid() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
 
   // Calculate timeline range
   const minYear = 2019;
@@ -118,7 +120,7 @@ export default function ProjectGrid() {
           transition={{ duration: 0.6 }}
           className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-black via-red-600 to-orange-500 bg-clip-text text-transparent mb-16 text-center"
         >
-          Projects
+          {t.projects.title}
         </motion.h2>
 
         {/* Timeline Visualization - Hidden on mobile */}
@@ -211,7 +213,7 @@ export default function ProjectGrid() {
                   </span>
                   {project.endYear === null && (
                     <span className="px-2 py-0.5 text-xs bg-green-100 text-green-700 rounded-full font-medium">
-                      Current
+                      {t.projects.current}
                     </span>
                   )}
                 </div>

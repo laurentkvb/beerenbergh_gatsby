@@ -3,16 +3,18 @@
 import { useState, useEffect } from "react";
 import { Home, User, Briefcase, Music, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const sections = [
-    { id: "home", label: "Home", icon: Home },
-    { id: "about", label: "About", icon: User },
-    { id: "projects", label: "Projects", icon: Briefcase },
-    { id: "music", label: "Music", icon: Music },
+    { id: "home", label: t.nav.home, icon: Home },
+    { id: "about", label: t.nav.about, icon: User },
+    { id: "projects", label: t.nav.projects, icon: Briefcase },
+    { id: "music", label: t.nav.music, icon: Music },
   ];
 
   useEffect(() => {

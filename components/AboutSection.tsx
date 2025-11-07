@@ -5,16 +5,18 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { Code2, Music2, Lightbulb, Users, Zap, Heart } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
 
   const values = [
-    { icon: Code2, label: "Technical Excellence", desc: "7+ years of battle-tested code" },
-    { icon: Users, label: "Team Player", desc: "Collaborative & communicative" },
-    { icon: Lightbulb, label: "Creative Mindset", desc: "Musician at heart" },
-    { icon: Zap, label: "Fast Learner", desc: "Adaptable to any stack" },
+    { icon: Code2, label: t.about.values.technical.label, desc: t.about.values.technical.desc },
+    { icon: Users, label: t.about.values.team.label, desc: t.about.values.team.desc },
+    { icon: Lightbulb, label: t.about.values.creative.label, desc: t.about.values.creative.desc },
+    { icon: Zap, label: t.about.values.learner.label, desc: t.about.values.learner.desc },
   ];
 
   const techHighlights = [
@@ -38,10 +40,10 @@ export default function AboutSection() {
           className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-orange-600 via-red-600 to-black bg-clip-text text-transparent">
-            The Human Behind the Code
+            {t.about.title}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            I believe great software is built by people who care — about craft, collaboration, and the users on the other side of the screen.
+            {t.about.subtitle}
           </p>
         </motion.div>
 
@@ -75,32 +77,32 @@ export default function AboutSection() {
               <div className="p-6 bg-gradient-to-br from-white to-gray-50">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
                   <Heart className="w-5 h-5 text-red-600" />
-                  Quick Facts
+                  {t.about.quickFacts}
                 </h3>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-center justify-between group">
-                    <span className="text-gray-500">Location:</span>
-                    <span className="font-medium text-gray-900 group-hover:text-orange-600 transition-colors">Amsterdam, Netherlands</span>
+                    <span className="text-gray-500">{t.about.location}</span>
+                    <span className="font-medium text-gray-900 group-hover:text-orange-600 transition-colors">{t.about.locationValue}</span>
                   </div>
                   <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
                   
                   <div className="flex items-center justify-between group">
-                    <span className="text-gray-500">Experience:</span>
-                    <span className="font-medium text-gray-900 group-hover:text-orange-600 transition-colors">7+ Years</span>
+                    <span className="text-gray-500">{t.about.experience}</span>
+                    <span className="font-medium text-gray-900 group-hover:text-orange-600 transition-colors">{t.about.experienceValue}</span>
                   </div>
                   <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
                   
                   <div className="flex items-center justify-between group">
-                    <span className="text-gray-500">Current Role:</span>
-                    <span className="font-medium text-gray-900 group-hover:text-orange-600 transition-colors">Full-Stack Engineer @ VGZ</span>
+                    <span className="text-gray-500">{t.about.currentRole}</span>
+                    <span className="font-medium text-gray-900 group-hover:text-orange-600 transition-colors">{t.about.currentRoleValue}</span>
                   </div>
                   <div className="w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
                   
                   <div className="flex items-center justify-between group">
-                    <span className="text-gray-500">Side Gig:</span>
+                    <span className="text-gray-500">{t.about.sideGig}</span>
                     <span className="font-medium text-gray-900 flex items-center gap-1.5 group-hover:text-orange-600 transition-colors">
                       <Music2 className="w-4 h-4 text-orange-600" />
-                      Bass Player
+                      {t.about.sideGigValue}
                     </span>
                   </div>
                 </div>
@@ -119,13 +121,13 @@ export default function AboutSection() {
             <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100">
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
                 <p>
-                  Hi, I'm <span className="font-semibold text-gray-900">Laurent</span> — a full-stack developer who loves turning ambiguous problems into clean, working solutions.
+                  {t.about.story1}
                 </p>
                 <p>
-                  Over the past 7 years, I've built web and mobile apps for companies like <span className="font-semibold text-gray-900">VGZ</span>, <span className="font-semibold text-gray-900">Ayvens (LeasePlan)</span>, and <span className="font-semibold text-gray-900">Rebels.io</span>. My sweet spot? Combining <span className="font-semibold text-gray-900">frontend polish</span> (React, TypeScript) with <span className="font-semibold text-gray-900">backend power</span> (Java, .NET) to deliver systems that scale.
+                  {t.about.story2}
                 </p>
                 <p>
-                  But here's what makes me different: I'm also a <span className="font-semibold text-gray-900">musician</span>. I play bass in the reggae band <span className="font-semibold text-orange-600">Jah Riddim</span> and freelance across pop, rock, and R&B. Music taught me <span className="italic">rhythm, listening, and improvisation</span> — skills that shape how I code, collaborate, and solve problems.
+                  {t.about.story3}
                 </p>
               </div>
             </div>
@@ -162,7 +164,7 @@ export default function AboutSection() {
           className="text-center"
         >
           <p className="text-sm font-medium text-gray-500 uppercase tracking-wider mb-6">
-            Technologies I Love
+            {t.about.techTitle}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             {techHighlights.map((tech, index) => (

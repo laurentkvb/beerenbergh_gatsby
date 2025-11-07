@@ -1,9 +1,11 @@
 "use client";
 
 import { Github, Linkedin, Mail } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const { t } = useLanguage();
 
   return (
     <footer className="py-12 px-8 md:px-12 lg:px-16 bg-apple-dark text-white">
@@ -61,7 +63,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-gray-400 text-center">
-            © {currentYear} Laurent Kleering van Beerenbergh — built with Next.js ❤️
+            © {currentYear} Laurent Kleering van Beerenbergh — {t.footer.builtWith}
           </p>
         </div>
       </div>
