@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
@@ -10,7 +10,7 @@ import { useLanguage } from "@/lib/LanguageContext";
 export default function AboutSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const values = [
     { icon: Code2, label: t.about.values.technical.label, desc: t.about.values.technical.desc },
@@ -118,24 +118,41 @@ export default function AboutSection() {
             className="space-y-6"
           >
             {/* Story section in a card */}
-            <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100">
-              <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
-                <p>
-                  {t.about.story1}
-                </p>
-                <p>
-                  {t.about.story2}
-                </p>
-                <p>
-                  {t.about.story3}
-                </p>
-              </div>
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`story-${language}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100"
+              >
+                <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+                  <p>
+                    {t.about.story1}
+                  </p>
+                  <p>
+                    {t.about.story2}
+                  </p>
+                  <p>
+                    {t.about.story3}
+                  </p>
+                </div>
+              </motion.div>
+            </AnimatePresence>
 
             {/* Core values card */}
-            <div className="bg-white rounded-3xl p-6 shadow-2xl border border-gray-100">
-              <div className="grid grid-cols-2 gap-4">
-                {values.map((value, index) => {
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={`values-${language}`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+                className="bg-white rounded-3xl p-6 shadow-2xl border border-gray-100"
+              >
+                <div className="grid grid-cols-2 gap-4">
+                  {values.map((value, index) => {
                   const Icon = value.icon;
                   return (
                     <motion.div
@@ -152,9 +169,10 @@ export default function AboutSection() {
                   );
                 })}
               </div>
-            </div>
-          </motion.div>
-        </div>
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
+      </div>
 
         {/* Tech Stack Pills */}
         <motion.div

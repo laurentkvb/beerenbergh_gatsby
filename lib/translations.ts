@@ -7,7 +7,7 @@ export const translations = {
       projects: "Projects",
       music: "Music",
     },
-    
+
     // Hero Section
     hero: {
       badge: "Full-Stack Developer • Musician • Problem Solver",
@@ -19,10 +19,10 @@ export const translations = {
       ctaSecondary: "Learn More",
       location: "Amsterdam, NL",
     },
-    
+
     // About Section
     about: {
-      title: "The Human Behind the Code",
+      title: "Laurent Kleering van Beerenbergh",
       subtitle: "I believe great software is built by people who care — about craft, collaboration, and the users on the other side of the screen.",
       quickFacts: "Quick Facts",
       location: "Location:",
@@ -33,11 +33,11 @@ export const translations = {
       currentRoleValue: "Full-Stack Engineer @ VGZ",
       sideGig: "Side Gig:",
       sideGigValue: "Bass Player",
-      
+
       story1: "Hi, I'm Laurent — a full-stack developer who loves turning ambiguous problems into clean, working solutions.",
       story2: "Over the past 7 years, I've built web and mobile apps for companies like VGZ, Ayvens (LeasePlan), and Rebels.io. My sweet spot? Combining frontend polish (React, TypeScript) with backend power (Java, .NET) to deliver systems that scale.",
       story3: "But here's what makes me different: I'm also a musician. I play bass in the reggae band Jah Riddim and freelance across pop, rock, and R&B. Music taught me rhythm, listening, and improvisation — skills that shape how I code, collaborate, and solve problems.",
-      
+
       values: {
         technical: {
           label: "Technical Excellence",
@@ -56,10 +56,10 @@ export const translations = {
           desc: "Adaptable to any stack",
         },
       },
-      
+
       techTitle: "Technologies I Love",
     },
-    
+
     // Projects Section
     projects: {
       title: "Work",
@@ -67,14 +67,14 @@ export const translations = {
       stack: "Stack",
       current: "Current",
     },
-    
+
     // Music Section
     music: {
       title: "Music",
       description: "Outside of software, I play bass in Jah Riddim — a reggae band that performs across Europe. I also produce and record my own music, blending groove and emotion with precision and sound design.",
       cta: "Watch on YouTube",
     },
-    
+
     // CTA Section
     cta: {
       title: "Let's Build Something Great",
@@ -83,13 +83,13 @@ export const translations = {
       ctaSecondary: "Connect on LinkedIn",
       availability: "Available for freelance work and full-time opportunities",
     },
-    
+
     // Footer
     footer: {
       builtWith: "built with Next.js",
     },
   },
-  
+
   nl: {
     // Navigation
     nav: {
@@ -98,86 +98,86 @@ export const translations = {
       projects: "Projecten",
       music: "Muziek",
     },
-    
+
     // Hero Section
     hero: {
       badge: "Full-Stack Developer • Muzikant • Probleemoplosser",
       title1: "Ik Bouw Apps",
-      title2: "Waar Mensen Van Houden",
-      subtitle1: "7+ jaar ervaring met het bouwen van schaalbare web- en mobiele oplossingen.",
-      subtitle2: "Van React frontends tot Java backends — ik zet complexe problemen om in elegante, gebruiksvriendelijke ervaringen.",
+      title2: "Waar Mensen Dol Op Zijn",
+      subtitle1: "7+ jaar ervaring in het creëren van schaalbare web en mobiele oplossingen.",
+      subtitle2: "Van React frontends tot Java backends — ik transformeer complexe uitdagingen naar elegante, mensgerichte ervaringen.",
       ctaPrimary: "Start een Project",
-      ctaSecondary: "Lees Meer",
+      ctaSecondary: "Ontdek Meer",
       location: "Amsterdam, NL",
     },
-    
+
     // About Section
     about: {
       title: "De Mens Achter de Code",
-      subtitle: "Ik geloof dat geweldige software wordt gebouwd door mensen die geven om vakmanschap, samenwerking en de gebruikers aan de andere kant van het scherm.",
-      quickFacts: "Snelle Feiten",
+      subtitle: "Goede software ontstaat door mensen die echt geven om hun vak, hun team en de eindgebruiker.",
+      quickFacts: "In het Kort",
       location: "Locatie:",
       locationValue: "Amsterdam, Nederland",
       experience: "Ervaring:",
       experienceValue: "7+ Jaar",
-      currentRole: "Huidige Rol:",
+      currentRole: "Huidige Functie:",
       currentRoleValue: "Full-Stack Engineer @ VGZ",
-      sideGig: "Bijbaan:",
+      sideGig: "Daarnaast:",
       sideGigValue: "Bassist",
-      
-      story1: "Hoi, ik ben Laurent — een full-stack developer die ervan houdt om onduidelijke problemen om te zetten in werkende oplossingen.",
-      story2: "De afgelopen 7 jaar heb ik web- en mobiele apps gebouwd voor bedrijven zoals VGZ, Ayvens (LeasePlan) en Rebels.io. Mijn specialiteit? Het combineren van frontend finesse (React, TypeScript) met backend kracht (Java, .NET) om schaalbare systemen te leveren.",
-      story3: "Maar dit maakt me anders: ik ben ook muzikant. Ik speel bas in de reggaeband Jah Riddim en werk freelance in de pop-, rock- en R&B-scene. Muziek leerde me ritme, luisteren en improviseren — vaardigheden die mijn manier van coderen, samenwerken en problemen oplossen vormgeven.",
-      
+
+      story1: "Hey, ik ben Laurent — een full-stack developer die complexe problemen omtovert tot elegante, werkende oplossingen.",
+      story2: "De afgelopen 7 jaar bouwde ik web en mobiele apps voor bedrijven als VGZ, Ayvens (LeasePlan) en Rebels.io. Mijn kracht? Frontend finesse (React, TypeScript) combineren met backend power (Java, .NET) om systemen te bouwen die écht schalen.",
+      story3: "Wat me uniek maakt: ik ben ook muzikant. Ik speel bas in reggaeband Jah Riddim en werk freelance in pop, rock en R&B. Muziek leerde me ritme, luisteren en improviseren — skills die mijn manier van coderen en samenwerken vormgeven.",
+
       values: {
         technical: {
           label: "Technische Excellentie",
-          desc: "7+ jaar beproefde code",
+          desc: "7+ jaar battle-tested code",
         },
         team: {
           label: "Teamspeler",
           desc: "Samenwerkend & communicatief",
         },
         creative: {
-          label: "Creatieve Mindset",
+          label: "Creatieve Geest",
           desc: "Muzikant in hart en nieren",
         },
         learner: {
           label: "Snelle Leerling",
-          desc: "Aanpasbaar aan elke stack",
+          desc: "Past zich aan elke stack aan",
         },
       },
-      
-      techTitle: "Technologieën Waar Ik Van Hou",
+
+      techTitle: "Tech die ik Liefheb",
     },
-    
+
     // Projects Section
     projects: {
       title: "Werk",
-      duration: "Duur",
+      duration: "Periode",
       stack: "Stack",
       current: "Huidig",
     },
-    
+
     // Music Section
     music: {
       title: "Muziek",
-      description: "Buiten software speel ik bas in Jah Riddim — een reggaeband die door heel Europa optreedt. Ik produceer en neem ook mijn eigen muziek op, waarbij ik groove en emotie combineer met precisie en geluidontwerp.",
+      description: "Buiten software speel ik bas in Jah Riddim — een reggaeband die door heel Europa toert. Daarnaast produceer en neem ik mijn eigen muziek op, waar groove en emotie samenkomen met precisie en sound design.",
       cta: "Bekijk op YouTube",
     },
-    
+
     // CTA Section
     cta: {
-      title: "Laten We Iets Geweldigs Bouwen",
-      subtitle: "Ik sta altijd open om nieuwe projecten, creatieve ideeën of kansen te bespreken om deel uit te maken van jouw visie.",
+      title: "Klaar om Iets Moois te Bouwen?",
+      subtitle: "Ik sta altijd open voor nieuwe projecten, creatieve ideeën of kansen om jouw visie werkelijkheid te maken.",
       ctaPrimary: "Neem Contact Op",
       ctaSecondary: "Verbind op LinkedIn",
-      availability: "Beschikbaar voor freelance werk en fulltime kansen",
+      availability: "Beschikbaar voor freelance projecten en fulltime kansen",
     },
-    
+
     // Footer
     footer: {
-      builtWith: "gebouwd met Next.js",
+      builtWith: "gebouwd met Next.js ❤️",
     },
   },
 } as const;

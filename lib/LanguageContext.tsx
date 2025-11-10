@@ -16,19 +16,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Load saved language from localStorage or detect browser language
-    const savedLanguage = localStorage.getItem("preferred-language") as Language;
-    
-    if (savedLanguage && (savedLanguage === "en" || savedLanguage === "nl")) {
-      setLanguageState(savedLanguage);
-    } else {
-      // Detect browser language
-      const browserLang = navigator.language.toLowerCase();
-      if (browserLang.startsWith("nl")) {
-        setLanguageState("nl");
-      }
-    }
-    
+    // Set language to English by default
+    setLanguageState("en");
     setMounted(true);
   }, []);
 

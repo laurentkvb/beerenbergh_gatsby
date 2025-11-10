@@ -8,7 +8,7 @@ export default function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage();
 
   return (
-    <div className="fixed top-6 right-24 z-50 lg:right-6">
+    <div className="fixed top-6 right-24 z-50 lg:right-6 hidden">
       <div className="flex items-center gap-2 bg-white/90 backdrop-blur-md rounded-full px-4 py-2 shadow-lg border border-gray-200">
         <Globe className="w-4 h-4 text-gray-600" />
         
