@@ -14,7 +14,7 @@ export const translations = {
       title1: "I Build Apps",
       title2: "People Love to Use",
       subtitle1: "7+ years crafting scalable web and mobile solutions.",
-      subtitle2: "From React frontends to Java backends — I turn complex problems into elegant, human-centered experiences.",
+      subtitle2: "From React frontends to Java backends, I turn complex problems into elegant, human-centered experiences.",
       ctaPrimary: "Start a Project",
       ctaSecondary: "Learn More",
       location: "Amsterdam, NL",
@@ -23,7 +23,7 @@ export const translations = {
     // About Section
     about: {
       title: "Laurent Kleering van Beerenbergh",
-      subtitle: "I believe great software is built by people who care — about craft, collaboration, and the users on the other side of the screen.",
+      subtitle: "I believe great software is built by people who cares about craft, collaboration, and the users on the other side of the screen.",
       quickFacts: "Quick Facts",
       location: "Location:",
       locationValue: "Amsterdam, Netherlands",
@@ -34,9 +34,9 @@ export const translations = {
       sideGig: "Side Gig:",
       sideGigValue: "Bass Player",
 
-      story1: "Hi, I'm Laurent — a full-stack developer who loves turning ambiguous problems into clean, working solutions.",
+      story1: "Hi, I'm Laurent a full-stack developer who loves turning ambiguous problems into clean, working solutions.",
       story2: "Over the past 7 years, I've built web and mobile apps for companies like VGZ, Ayvens (LeasePlan), and Rebels.io. My sweet spot? Combining frontend polish (React, TypeScript) with backend power (Java, .NET) to deliver systems that scale.",
-      story3: "But here's what makes me different: I'm also a musician. I play bass in the reggae band Jah Riddim and freelance across pop, rock, and R&B. Music taught me rhythm, listening, and improvisation — skills that shape how I code, collaborate, and solve problems.",
+      story3: "But here's what makes me different: I'm also a musician. I play bass in the reggae band Jah Riddim and freelance across pop, rock, and R&B. Music taught me rhythm, listening, and improvisation skills that shape how I code, collaborate, and solve problems.",
 
       values: {
         technical: {
@@ -71,7 +71,7 @@ export const translations = {
     // Music Section
     music: {
       title: "Music",
-      description: "Outside of software, I play bass in Jah Riddim — a reggae band that performs across Europe. I also produce and record my own music, blending groove and emotion with precision and sound design.",
+      description: "Outside of software, I play music, especially bass guitar and guitar. I also produce and record my own music, blending groove and emotion with precision and sound design.",
       cta: "Watch on YouTube",
     },
 
@@ -105,7 +105,7 @@ export const translations = {
       title1: "Ik Bouw Apps",
       title2: "Waar Mensen Dol Op Zijn",
       subtitle1: "7+ jaar ervaring in het creëren van schaalbare web en mobiele oplossingen.",
-      subtitle2: "Van React frontends tot Java backends — ik transformeer complexe uitdagingen naar elegante, mensgerichte ervaringen.",
+      subtitle2: "Van React frontends tot Java backends,  ik transformeer complexe uitdagingen naar elegante, mensgerichte ervaringen.",
       ctaPrimary: "Start een Project",
       ctaSecondary: "Ontdek Meer",
       location: "Amsterdam, NL",
