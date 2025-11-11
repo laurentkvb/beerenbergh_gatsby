@@ -63,7 +63,7 @@ export default function Footer() {
 
           {/* Copyright */}
           <p className="text-gray-400 text-center">
-            © {currentYear} Laurent Kleering van Beerenbergh — {t.footer.builtWith}
+            © {currentYear} Laurent Kleering van Beerenbergh  {t.footer.builtWith}
           </p>
         </div>
       </div>
