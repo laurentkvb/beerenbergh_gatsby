@@ -1,14 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Home, User, Briefcase, Music, Menu, X } from "lucide-react";
+import { Home, User, Briefcase, Music, BookOpen, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/lib/LanguageContext";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
+  const pathname = usePathname();
 
   const sections = [
     { id: "home", label: t.nav.home, icon: Home },
@@ -105,6 +108,37 @@ export default function Navigation() {
               </button>
             );
           })}
+          
+          {/* Blog Link - separate from scroll sections */}
+          <Link
+            href="/blogs"
+            className="group relative flex items-center justify-center"
+            aria-label={t.nav.blog}
+          >
+            <div
+              className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
+                pathname?.startsWith('/blogs')
+                  ? "bg-gradient-to-r from-black via-red-600 to-orange-500 text-white scale-110"
+                  : "text-gray-600 hover:bg-gray-100 hover:scale-105"
+              }`}
+            >
+              <BookOpen className="w-5 h-5" />
+            </div>
+
+            {/* Tooltip */}
+            <div className="absolute left-full ml-4 px-3 py-1.5 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
+              {t.nav.blog}
+            </div>
+
+            {/* Active indicator */}
+            {pathname?.startsWith('/blogs') && (
+              <motion.div
+                layoutId="activeIndicator"
+                className="absolute -left-2 w-1 h-8 bg-gradient-to-b from-black via-red-600 to-orange-500 rounded-full"
+                transition={{ type: "spring", stiffness: 380, damping: 30 }}
+              />
+            )}
+          </Link>
         </div>
       </nav>
 
@@ -157,6 +191,20 @@ export default function Navigation() {
                     </button>
                   );
                 })}
+                
+                {/* Blog Link */}
+                <Link
+                  href="/blogs"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-200 ${
+                    pathname?.startsWith('/blogs')
+                      ? "bg-gradient-to-r from-black via-red-600 to-orange-500 text-white"
+                      : "text-gray-700 hover:bg-gray-100"
+                  }`}
+                >
+                  <BookOpen className="w-5 h-5" />
+                  <span className="font-medium">{t.nav.blog}</span>
+                </Link>
               </div>
             </motion.div>
           </motion.div>

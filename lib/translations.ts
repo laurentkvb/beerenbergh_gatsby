@@ -6,6 +6,7 @@ export const translations = {
       about: "About",
       projects: "Projects",
       music: "Music",
+      blog: "Blog",
     },
 
     // Hero Section
@@ -97,6 +98,7 @@ export const translations = {
       about: "Over mij",
       projects: "Projecten",
       music: "Muziek",
+      blog: "Blog",
     },
 
     // Hero Section
