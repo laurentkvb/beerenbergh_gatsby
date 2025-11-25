@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "./prose-overrides.css";
+@import "../styles/prose-overrides.css";
 
 :root {
   --background: #ffffff;
