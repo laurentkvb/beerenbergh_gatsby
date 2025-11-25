@@ -109,15 +109,15 @@ export default function Navigation() {
             );
           })}
           
-          {/* Blog Link - separate from scroll sections */}
-          <Link
-            href="/blogs"
+          {/* Blog Button - scroll to blogs section */}
+          <button
+            onClick={() => handleNavClick("blogs")}
             className="group relative flex items-center justify-center"
             aria-label={t.nav.blog}
           >
             <div
               className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
-                pathname?.startsWith('/blogs')
+                activeSection === "blogs"
                   ? "bg-gradient-to-r from-black via-red-600 to-orange-500 text-white scale-110"
                   : "text-gray-600 hover:bg-gray-100 hover:scale-105"
               }`}
@@ -131,14 +131,14 @@ export default function Navigation() {
             </div>
 
             {/* Active indicator */}
-            {pathname?.startsWith('/blogs') && (
+            {activeSection === "blogs" && (
               <motion.div
                 layoutId="activeIndicator"
                 className="absolute -left-2 w-1 h-8 bg-gradient-to-b from-black via-red-600 to-orange-500 rounded-full"
                 transition={{ type: "spring", stiffness: 380, damping: 30 }}
               />
             )}
-          </Link>
+          </button>
         </div>
       </nav>
 
@@ -192,19 +192,18 @@ export default function Navigation() {
                   );
                 })}
                 
-                {/* Blog Link */}
-                <Link
-                  href="/blogs"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                {/* Blog Button - scroll to blogs section */}
+                <button
+                  onClick={() => { handleNavClick("blogs"); setIsMobileMenuOpen(false); }}
                   className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-200 ${
-                    pathname?.startsWith('/blogs')
+                    activeSection === "blogs"
                       ? "bg-gradient-to-r from-black via-red-600 to-orange-500 text-white"
                       : "text-gray-700 hover:bg-gray-100"
                   }`}
                 >
                   <BookOpen className="w-5 h-5" />
                   <span className="font-medium">{t.nav.blog}</span>
-                </Link>
+                </button>
               </div>
             </motion.div>
           </motion.div>

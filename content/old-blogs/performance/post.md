@@ -7,8 +7,6 @@ ogImage: "/images/blogs/default-og.png"
 tags: ["software", "react-native", "performance"]
 ---
 
-# React Native Performance Tips from the Trenches
-
 Working on VGZ's health platform serving thousands of users taught me valuable lessons about React Native performance. Here are my top tips.
 
 ## 1. Memoization is Your Friend

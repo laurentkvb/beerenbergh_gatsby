@@ -7,8 +7,6 @@ ogImage: "/images/blogs/default-og.png"
 tags: ["software", "ios", "swift"]
 ---
 
-# Building SquashG: A SwiftUI Journey
-
 Recently, I built **SquashG**, a minimalist squash scoring app for iOS. It was my first deep dive into SwiftUI and SwiftData, and I learned a ton.
 
 ## The Problem

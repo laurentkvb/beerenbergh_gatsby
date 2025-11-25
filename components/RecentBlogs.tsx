@@ -34,12 +34,12 @@ export default function RecentBlogs({ posts }: RecentBlogsProps) {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200/50 mb-6">
-            <BookOpen className="w-4 h-4 text-orange-600" />
-            <span className="text-sm font-medium text-gray-700">Recent Posts</span>
-          </div>
+          {/*<div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-orange-50 to-red-50 border border-orange-200/50 mb-6">*/}
+          {/*  <BookOpen className="w-4 h-4 text-orange-600" />*/}
+          {/*  <span className="text-sm font-medium text-gray-700">Recent Posts</span>*/}
+          {/*</div>*/}
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-600 via-red-600 to-black bg-clip-text text-transparent">
-            Latest from the Blog
+            Blogs
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Thoughts on software development, music, and lessons learned along the way.
