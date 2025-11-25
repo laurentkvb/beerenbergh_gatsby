@@ -22,7 +22,7 @@ export default function RecentBlogs({ posts }: RecentBlogsProps) {
 
   return (
     <section
-      id="blogs"
+      id="blog"
       className="py-24 px-6 md:px-12 lg:px-16 bg-gradient-to-b from-white to-[#fafafa]"
       ref={ref}
     >

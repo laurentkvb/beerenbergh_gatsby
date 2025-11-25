@@ -18,7 +18,7 @@ export default function Navigation() {
     { id: "about", label: t.nav.about, icon: User },
     { id: "projects", label: t.nav.projects, icon: Briefcase },
     { id: "music", label: t.nav.music, icon: Music },
-    { id: "blogs", label: t.nav.blog, icon: BookOpen },
+    { id: "blog", label: t.nav.blog, icon: BookOpen },
   ];
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function Navigation() {
 
       // Check sections in reverse order (bottom to top) for better accuracy
       const reverseSections = [...sections].reverse();
-      
+
       for (const section of reverseSections) {
         const element = document.getElementById(section.id === "home" ? "hero" : section.id);
         if (element) {
@@ -75,7 +75,7 @@ export default function Navigation() {
           {sections.map((section) => {
             const Icon = section.icon;
             const isActive = activeSection === section.id;
-            
+
             return (
               <button
                 key={section.id}
@@ -109,7 +109,7 @@ export default function Navigation() {
               </button>
             );
           })}
-          
+
         </div>
       </nav>
 
@@ -162,19 +162,7 @@ export default function Navigation() {
                     </button>
                   );
                 })}
-                
-                {/* Blog Button - scroll to blogs section */}
-                <button
-                  onClick={() => { handleNavClick("blogs"); setIsMobileMenuOpen(false); }}
-                  className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-200 ${
-                    activeSection === "blogs"
-                      ? "bg-gradient-to-r from-black via-red-600 to-orange-500 text-white"
-                      : "text-gray-700 hover:bg-gray-100"
-                  }`}
-                >
-                  <BookOpen className="w-5 h-5" />
-                  <span className="font-medium">{t.nav.blog}</span>
-                </button>
+
               </div>
             </motion.div>
           </motion.div>
