@@ -39,10 +39,10 @@ export default function RecentBlogs({ posts }: RecentBlogsProps) {
           {/*  <span className="text-sm font-medium text-gray-700">Recent Posts</span>*/}
           {/*</div>*/}
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-orange-600 via-red-600 to-black bg-clip-text text-transparent">
-            Blogs
+            Blog
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Thoughts on software development, music, and lessons learned along the way.
+            Experiences of my life, online & offline
           </p>
         </motion.div>
 

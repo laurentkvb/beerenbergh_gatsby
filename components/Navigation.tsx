@@ -18,6 +18,7 @@ export default function Navigation() {
     { id: "about", label: t.nav.about, icon: User },
     { id: "projects", label: t.nav.projects, icon: Briefcase },
     { id: "music", label: t.nav.music, icon: Music },
+    { id: "blogs", label: t.nav.blog, icon: BookOpen },
   ];
 
   useEffect(() => {
@@ -109,36 +110,6 @@ export default function Navigation() {
             );
           })}
           
-          {/* Blog Button - scroll to blogs section */}
-          <button
-            onClick={() => handleNavClick("blogs")}
-            className="group relative flex items-center justify-center"
-            aria-label={t.nav.blog}
-          >
-            <div
-              className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
-                activeSection === "blogs"
-                  ? "bg-gradient-to-r from-black via-red-600 to-orange-500 text-white scale-110"
-                  : "text-gray-600 hover:bg-gray-100 hover:scale-105"
-              }`}
-            >
-              <BookOpen className="w-5 h-5" />
-            </div>
-
-            {/* Tooltip */}
-            <div className="absolute left-full ml-4 px-3 py-1.5 bg-gray-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap">
-              {t.nav.blog}
-            </div>
-
-            {/* Active indicator */}
-            {activeSection === "blogs" && (
-              <motion.div
-                layoutId="activeIndicator"
-                className="absolute -left-2 w-1 h-8 bg-gradient-to-b from-black via-red-600 to-orange-500 rounded-full"
-                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-              />
-            )}
-          </button>
         </div>
       </nav>
 

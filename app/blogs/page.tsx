@@ -24,7 +24,7 @@ export default async function BlogsPage() {
             Blog
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Thoughts on software development, music, and life as a developer and drummer.
+            Experiences of my life, online & offline
           </p>
         </div>
 
