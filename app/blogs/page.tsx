@@ -26,6 +26,12 @@ export default async function BlogsPage() {
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Experiences of my life, online & offline
           </p>
+          <a
+            href="/"
+            className="inline-flex items-center gap-2 px-8 py-4 mt-8 bg-gradient-to-r from-black via-red-600 to-orange-500 text-white rounded-full hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105 text-lg font-semibold"
+          >
+            ← Back to home
+          </a>
         </div>
 
         {/* Blog List */}
