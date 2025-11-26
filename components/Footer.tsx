@@ -14,7 +14,7 @@ export default function Footer() {
           {/* Social Links */}
           <div className="flex items-center gap-6">
             <a
-              href="https://github.com/laurentkleering"
+              href="https://github.com/laurentvb"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-110 transform transition-transform duration-200"

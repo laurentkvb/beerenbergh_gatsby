@@ -16,7 +16,7 @@ export const translations = {
       title2: "People Love to Use",
       subtitle1: "7+ years crafting scalable web and mobile solutions.",
       subtitle2: "From React frontends to Java backends, I turn complex problems into elegant, human-centered experiences.",
-      ctaPrimary: "Start a Project",
+      ctaPrimary: "Get In Touch",
       ctaSecondary: "Learn More",
       location: "Amsterdam, NL",
     },

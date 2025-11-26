@@ -26,7 +26,7 @@ Edit the following files:
 - `components/Footer.tsx` (lines 13-37)
 
 Replace:
-- GitHub: `https://github.com/laurentkleering`
+- GitHub: `https://github.com/laurentvb`
 - LinkedIn: `https://linkedin.com/in/laurentkleering`
 - Email: `laurent@example.com`
 

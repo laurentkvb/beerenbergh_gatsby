@@ -122,7 +122,7 @@ This project is open source and available under the MIT License.
 ## 🤝 Contact
 
 Laurent Kleering van Beerenbergh
-- GitHub: [@laurentkleering](https://github.com/laurentkleering)
+- GitHub: [@laurentkleering](https://github.com/laurentvb)
 - LinkedIn: [laurentkleering](https://linkedin.com/in/laurentkleering)
 - Email: laurent@example.com
 
