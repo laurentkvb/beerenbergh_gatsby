@@ -33,7 +33,7 @@ export default function MusicSection() {
             </p>
 
             <a
-              href="https://youtube.com/@L.Kleering"
+              href="https://youtube.com/@B4SSKID"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200"
