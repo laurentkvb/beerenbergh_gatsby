@@ -1,9 +1,9 @@
 @layer components {
   .prose h1 {
-    @apply text-4xl md:text-5xl mt-0 mb-8 leading-tight bg-gradient-to-r from-orange-600 via-red-600 to-black bg-clip-text text-transparent drop-shadow-lg font-bold tracking-tight;
+    @apply text-4xl md:text-5xl mt-0 mb-8 leading-tight bg-gradient-to-r from-orange-600 via-red-600 to-black bg-clip-text text-transparent drop-shadow-lg font-bold tracking-tight dark:from-orange-400 dark:via-red-500 dark:to-orange-300;
   }
   .prose h2 {
-    @apply text-3xl md:text-4xl mt-12 mb-6 pb-2 border-b-2 border-orange-200 bg-gradient-to-r from-orange-600 via-red-600 to-black bg-clip-text text-transparent drop-shadow font-bold tracking-tight;
+    @apply text-3xl md:text-4xl mt-12 mb-6 pb-2 border-b-2 border-orange-200 bg-gradient-to-r from-orange-600 via-red-600 to-black bg-clip-text text-transparent drop-shadow font-bold tracking-tight dark:from-orange-400 dark:via-red-500 dark:to-orange-300;
   }
   .prose h3 {
     @apply text-xl md:text-2xl mt-10 mb-4 text-orange-700 font-semibold drop-shadow tracking-tight;

@@ -15,5 +15,35 @@
     ],
     "content": "<h2>Hello, world. This is me Laurent.</h2>\n<p>I've recently came up with an idea to start blogging. I got inspired by a colleague\nthat already does some blogging. Over here I'd like to share my own experiences in, for example vibe-coding an app from scratch\nor a life experience that I had. It could be interesting for others to read, and for myself to read upon it later.\nI always like to store memories in all kinds of way to reflect back on it. In this way; writing it publicly - I have never done it, but it is interesting.\nUsually I would film or video it, but by writing it can really be articulated from brain to text, if you get what I mean.</p>\n<h2>What you can expect</h2>\n<p>Short, honest posts about things I go through and what I experience along the way of lifes.</p>\n<p>• things I learn as a developer</p>\n<p>• music, creativity, and inspiration</p>\n<p>• thoughts on discipline, growth, doubts</p>\n<p>• lifestyle: travel, Dublin vibes, random experiences</p>\n<p>• my projects</p>\n<p>• maybe even a video now and then</p>\n<h2>Why I’m doing this</h2>\n<p>I want a place to document things, not perfect, but genuine.<br>\nSomewhere to share, reflect, and maybe inspire someone who’s on a similar path.</p>\n<h2>What’s next?</h2>\n<p>I’m keeping it simple.</p>\n<p>Sometimes a short post, sometimes a longer breakdown, sometimes just one insight from that day.</p>\n<p>Thanks for being here.</p>\n<p>Let’s see where this goes.</p>\n",
     "excerpt": "Hello, world. This is me Laurent.\nI've recently came up with an idea to start blogging. I got inspired by a colleague\n that already does some blogging..."
+  },
+  {
+    "slug": "squashg",
+    "title": "Building SquashG: A SwiftUI Journey",
+    "author": "Laurent Kleering van Beerenbergh",
+    "date": "2025-11-20",
+    "description": "How I built a squash scoring app using SwiftUI, SwiftData, and privacy-first principles.",
+    "ogImage": "/images/blogs/default-og.png",
+    "tags": [
+      "software",
+      "ios",
+      "swift"
+    ],
+    "content": "<p>Recently, I built <strong>SquashG</strong>, a minimalist squash scoring app for iOS. It was my first deep dive into SwiftUI and SwiftData, and I learned a ton.</p>\n<h2>The Problem</h2>\n<p>Every time I played squash with friends, we struggled to keep track of scores, sets, and who was winning. Existing apps were either too complex or had ads and tracking. I wanted something simple, private, and offline-first.</p>\n<h2>The Solution</h2>\n<p>SquashG is a <strong>100% offline</strong> scoring app that:</p>\n<ul>\n<li>Tracks match scores and sets</li>\n<li>Calculates ELO ratings</li>\n<li>Stores player photos locally</li>\n<li>Has zero tracking or data collection</li>\n</ul>\n<h2>Technical Highlights</h2>\n<h3>SwiftUI + SwiftData</h3>\n<p>Using SwiftData made local persistence incredibly simple:</p>\n<pre><code class=\"language-swift\">@Model\nclass Player {\n    var name: String\n    var elo: Int\n    var photoData: Data?\n}\n</code></pre>\n<h3>Privacy-First Design</h3>\n<p>No network requests. No analytics. No third-party SDKs. Everything stays on the device.</p>\n<h2>Lessons Learned</h2>\n<ol>\n<li><strong>Start simple</strong>: I initially planned complex features, but focused on core functionality first</li>\n<li><strong>SwiftUI is powerful</strong>: The declarative syntax made UI iteration fast</li>\n<li><strong>Privacy matters</strong>: Users appreciate apps that respect their data</li>\n</ol>\n<h2>What's Next</h2>\n<p>I'm considering adding match statistics and sharing features (still offline). Stay tuned!</p>\n<p>Check out the <a href=\"/squashg-privacy-policy\">privacy policy</a> to see how seriously I take user privacy.</p>\n",
+    "excerpt": "Recently, I built SquashG, a minimalist squash scoring app for iOS. It was my first deep dive into SwiftUI and SwiftData, and I learned a ton.\n\n The P..."
+  },
+  {
+    "slug": "performance",
+    "title": "React Native Performance Tips from the Trenches",
+    "author": "Laurent Kleering van Beerenbergh",
+    "date": "2025-11-15",
+    "description": "Practical performance optimization tips I learned while working on VGZ's React Native health platform.",
+    "ogImage": "/images/blogs/default-og.png",
+    "tags": [
+      "software",
+      "react-native",
+      "performance"
+    ],
+    "content": "<p>Working on VGZ's health platform serving thousands of users taught me valuable lessons about React Native performance. Here are my top tips.</p>\n<h2>1. Memoization is Your Friend</h2>\n<p>Don't recreate functions on every render:</p>\n<pre><code class=\"language-typescript\">// ❌ Bad\n&#x3C;TouchableOpacity onPress={() => handlePress(item.id)}>\n\n// ✅ Good\nconst handleItemPress = useCallback(() => {\n  handlePress(item.id);\n}, [item.id]);\n\n&#x3C;TouchableOpacity onPress={handleItemPress}>\n</code></pre>\n<h2>2. FlatList Optimization</h2>\n<p>Always use these props:</p>\n<ul>\n<li><code>removeClippedSubviews={true}</code></li>\n<li><code>maxToRenderPerBatch={10}</code></li>\n<li><code>windowSize={5}</code></li>\n<li><code>getItemLayout</code> for fixed-height items</li>\n</ul>\n<h2>3. Image Optimization</h2>\n<p>Use <code>react-native-fast-image</code> for better caching and performance. Always specify dimensions.</p>\n<h2>4. Avoid Anonymous Functions in JSX</h2>\n<p>Create stable references with <code>useCallback</code>:</p>\n<pre><code class=\"language-typescript\">const renderItem = useCallback(({ item }) => (\n  &#x3C;ListItem data={item} />\n), []);\n</code></pre>\n<h2>5. Profile Before Optimizing</h2>\n<p>Use React DevTools Profiler and Flipper to identify actual bottlenecks. Don't optimize prematurely.</p>\n<h2>Real-World Impact</h2>\n<p>After implementing these techniques, we reduced:</p>\n<ul>\n<li>Initial render time by 40%</li>\n<li>Memory usage by 25%</li>\n<li>Frame drops during scrolling to near zero</li>\n</ul>\n<h2>Conclusion</h2>\n<p>Performance optimization is about making smart choices early and measuring impact. These techniques have served me well across multiple production apps.</p>\n<p>What are your favorite React Native performance tips? Let me know!</p>\n",
+    "excerpt": "Working on VGZ's health platform serving thousands of users taught me valuable lessons about React Native performance. Here are my top tips.\n\n 1. Memo..."
   }
 ]
