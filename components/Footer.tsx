@@ -14,7 +14,7 @@ export default function Footer() {
           {/* Social Links */}
           <div className="flex items-center gap-6">
             <a
-              href="https://github.com/laurentvb"
+              href={t.socials.github}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-110 transform transition-transform duration-200"
@@ -23,7 +23,7 @@ export default function Footer() {
               <Github className="w-6 h-6 stroke-[2.5] [stroke:url(#gradient1)]" />
             </a>
             <a
-              href="https://linkedin.com/in/laurentkleering"
+              href={t.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:scale-110 transform transition-transform duration-200"
@@ -32,7 +32,7 @@ export default function Footer() {
               <Linkedin className="w-6 h-6 stroke-[2.5] [stroke:url(#gradient2)]" />
             </a>
             <a
-              href="mailto:lkvb90@gmail.com"
+              href={t.socials.email}
               className="hover:scale-110 transform transition-transform duration-200"
               aria-label="Email"
             >

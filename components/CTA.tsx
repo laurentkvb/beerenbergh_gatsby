@@ -44,7 +44,7 @@ export default function CTA() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.2 }}
-              href="mailto:lkvb90@gmail.com?subject=Let's work together"
+              href={`${t.socials.email}?subject=Let%27s%20work%20together`}
               className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-black via-red-600 to-orange-500 text-white rounded-full hover:opacity-90 transition-all duration-200 hover:scale-105 text-lg font-medium w-full sm:w-auto justify-center shadow-lg"
             >
               <Mail className="w-5 h-5" />
@@ -60,7 +60,7 @@ export default function CTA() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.2, delay: 0.05 }}
-              href="https://linkedin.com/in/laurent-kleering-van-beerenbergh"
+              href={t.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="group flex items-center gap-3 px-8 py-4 border-2 border-gray-900 text-gray-900 rounded-full hover:bg-gray-900 hover:text-white transition-all duration-200 hover:scale-105 text-lg font-medium w-full sm:w-auto justify-center"

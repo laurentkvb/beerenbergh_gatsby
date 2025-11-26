@@ -85,6 +85,14 @@ export const translations = {
       availability: "Available for freelance work and full-time opportunities",
     },
 
+    // Social links
+    socials: {
+      github: "https://github.com/laurentkvb",
+      linkedin: "https://linkedin.com/in/laurent-kleering-van-beerenbergh",
+      youtube: "https://youtube.com/@B4SSKID",
+      email: "mailto:lkvb90@gmail.com",
+    },
+
     // Footer
     footer: {
       builtWith: "built with Next.js",
@@ -175,6 +183,14 @@ export const translations = {
       ctaPrimary: "Neem Contact Op",
       ctaSecondary: "Verbind op LinkedIn",
       availability: "Beschikbaar voor freelance projecten en fulltime kansen",
+    },
+
+    // Social links
+    socials: {
+      github: "https://github.com/laurentkvb",
+      linkedin: "https://linkedin.com/in/laurent-kleering-van-beerenbergh",
+      youtube: "https://youtube.com/@L.Kleering",
+      email: "mailto:lkvb90@gmail.com",
     },
 
     // Footer

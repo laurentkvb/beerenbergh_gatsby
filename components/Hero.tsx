@@ -79,7 +79,7 @@ export default function Hero() {
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
             <a
-              href="mailto:lkvb90@gmail.com?subject=Let's work together"
+              href={`${t.socials.email}?subject=Let%27s%20work%20together`}
               className="group relative px-8 py-4 bg-gradient-to-r from-black via-red-600 to-orange-500 text-white rounded-full hover:shadow-2xl hover:shadow-orange-500/25 transition-all duration-300 hover:scale-105 text-lg font-semibold w-full sm:w-auto flex items-center justify-center gap-2"
             >
               <Mail className="w-5 h-5" />
@@ -112,7 +112,7 @@ export default function Hero() {
           className="flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500"
         >
           <a
-            href="https://github.com/laurentkvb"
+            href={t.socials.github}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 hover:text-gray-900 transition-colors"
@@ -122,7 +122,7 @@ export default function Hero() {
           </a>
           <span className="w-1 h-1 bg-gray-300 rounded-full" />
           <a
-            href="https://linkedin.com/in/laurent-kleering-van-beerenbergh"
+            href={t.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 hover:text-gray-900 transition-colors"
